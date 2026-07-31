@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-label="Stamp · approval pipeline">
+  <circle cx="110" cy="110" r="86" fill="none" stroke="#161714" stroke-width="3"/>
+  <circle cx="110" cy="110" r="73" fill="none" stroke="#161714" stroke-width="1.5"/>
+  <path d="M 76 112 L 99 134 L 146 84" fill="none" stroke="#80988f" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="236" y="118" font-family="Georgia, 'Times New Roman', serif" font-size="84" letter-spacing="10" fill="#161714">STAMP</text>
+  <text x="238" y="164" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="21" letter-spacing="12" fill="#80988f" text-transform="uppercase">APPROVAL PIPELINE</text>
+</svg>
