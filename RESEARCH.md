@@ -4,7 +4,7 @@
 
 This research summary synthesizes macro market data, regulatory mandates from the Securities and Futures Commission (SFC) and Hong Kong Monetary Authority (HKMA), and operational friction points across licensed financial SMEs in Central and Sheung Wan. It serves as the strategic foundation for Jonathan Simpson & Co.’s (JS&C) compliant Agentic AI platform and pitch narrative.
 
-The core insight is that while $90\%+$ of Hong Kong financial institutions prioritize AI deployment, over $70\%$ struggle to extract measurable ROI. They are trapped between high junior analyst operational costs ($\text{HKD } 580,000/\text{year}$ per entry-level FTE) and strict regulatory firewalls regarding data retention, Personal Data Privacy Ordinance (PCPD) violations, and non-public material information (MNPI) handling. JS&C’s Zero-Data-Retention (ZDR) Agentic Middleware bridges this gap by delivering a $65\%$ operational cost reduction ($10.9\times$ LTV:CAC ratio) backed by a 3-Year No-Junior-Hire Guarantee.
+The core insight is that while $90\%+$ of Hong Kong financial institutions prioritize AI deployment, over $70\%$ struggle to extract measurable ROI. They are trapped between high junior analyst operational costs ($\text{HKD } 580,000/\text{year}$ per entry-level FTE) and strict regulatory firewalls regarding data retention, Personal Data Privacy Ordinance (PCPD) violations, and non-public material information (MNPI) handling. JS&C’s Zero-Data-Retention (ZDR) Agentic Middleware bridges this gap by delivering a $65\%$ operational cost reduction ($10.9\times$ LTV:CAC ratio) backed by a talent-retention reframe that frees juniors for meaningful research.
 
 ## 1. Market Opportunity & Sizing (TAM / SAM / SOM)
 
@@ -110,7 +110,7 @@ Low Compliance      | Traditional IT    | Generic APIs       |
 - **Enterprise Agreement (EA) Barrier Bypass:** Major AI providers require gated enterprise agreements for Zero-Data-Retention and modified abuse monitoring. JS&C aggregates SME tenant volume onto pre-approved, compliant infrastructure.
 - **Regional Data Pinning:** Execution environments are strictly locked to virtual server instances physically located in Hong Kong and Singapore.
 - **Sandbox++ Multi-Agent Verification:** Native AI-vs-AI auditing engines that check outputs directly against SFC and HKMA guidelines before human sign-off.
-- **The 3-Year Guarantee:** Commercial risk reversal—if a client needs to hire a junior analyst for a pipeline JS&C automated within $3$ years, setup fees are refunded.
+- **The Junior Reframe:** Automation absorbs the manual consolidation work, freeing junior analysts for research, analysis, and client-facing value—a talent-retention play, not a hiring freeze.
 
 ## 5. Primary Workflows Selected for the Interactive Demo
 

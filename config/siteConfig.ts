@@ -17,9 +17,9 @@ export const siteConfig = {
     lang: 'en',
     locale: 'en_HK',
     titleTemplate: '%s | JS&C Automation',
-    defaultTitle: 'JS&C Automation — Zero-Data-Retention Agentic AI for HK Finance',
+    defaultTitle: 'JS&C Automation | Zero-Data-Retention Agentic AI for HK Finance',
     defaultDescription:
-      'Simulate ZDR multi-agent pipelines that eliminate junior analyst overhead while maintaining SFC, HKMA, and PCPD compliance. Built by Jonathan Simpson & Co.',
+      'Simulate ZDR multi-agent pipelines that free junior analysts from manual consolidation so they can focus on meaningful research, while maintaining SFC, HKMA, and PCPD compliance. Built by Jonathan Simpson & Co.',
     defaultKeywords: [
       'AI automation Hong Kong',
       'agentic AI Hong Kong',
@@ -37,12 +37,12 @@ export const siteConfig = {
         'SFC compliant AI',
         'HK finance automation',
       ],
-      ogTitle: 'JS&C Automation — Zero-Data-Retention Agentic AI for HK Finance',
+      ogTitle: 'JS&C Automation | Zero-Data-Retention Agentic AI for HK Finance',
     },
     demo: {
       title: 'Agent Canvas',
       description:
-        'Watch an AI agent execute multi-step financial workflows inline — document ingestion, sanctions screening, variance analysis, and dispatch. Zero-data-retention, SFC-compliant.',
+        'Watch an AI agent execute multi-step financial workflows inline: document ingestion, sanctions screening, variance analysis, and dispatch. Zero-data-retention, SFC-compliant.',
       keywords: [
         'AI agent demo Hong Kong',
         'financial workflow automation demo',
@@ -50,7 +50,7 @@ export const siteConfig = {
         'agentic AI pipeline demo',
         'zero-data-retention demo',
       ],
-      ogTitle: 'JS&C Automation — Agent Canvas Demo',
+      ogTitle: 'JS&C Automation | Agent Canvas Demo',
       ogDescription:
         'Inline AI agent stream-of-thought showing live tool execution, compliance checks, and financial data reconciliation.',
     },
@@ -90,7 +90,7 @@ export const siteConfig = {
       {
         question: 'What is Zero-Data-Retention Agentic AI?',
         answer:
-          'ZDR Agentic AI processes client data in ephemeral RAM sandboxes. Raw data vanishes immediately after execution — no persistent storage, no third-party model training, full PCPD compliance.',
+          'ZDR Agentic AI processes client data in ephemeral RAM sandboxes. Raw data vanishes immediately after execution: no persistent storage, no third-party model training, full PCPD compliance.',
       },
       {
         question: 'Is this compliant with SFC regulations?',
@@ -100,11 +100,11 @@ export const siteConfig = {
       {
         question: 'How much does a typical firm save?',
         answer:
-          'Replacing one junior analyst FTE (HKD 580,000/year including overhead) with the JS&C Pro Tier (HKD 202,000/year all-in) saves HKD 378,000 per year — a 65% cost reduction.',
+          'Replacing one junior analyst FTE (HKD 580,000/year including overhead) with the JS&C Pro Tier (HKD 202,000/year all-in) saves HKD 378,000 per year, a 65% cost reduction.',
       },
     ],
     ogImage: {
-      alt: 'JS&C Automation — Compliant Agentic AI for HK Finance',
+      alt: 'JS&C Automation | Compliant Agentic AI for HK Finance',
       eyebrow: '2026 Strategic Briefing · Live Demo',
       title: 'JS&C Automation',
       subtitle1: 'Zero-Data-Retention Agentic AI pipelines for',
@@ -150,11 +150,11 @@ export const siteConfig = {
     headlineEmphasisIndex: 1,
     boldIntro: '70% operational cost reduction',
     subtext:
-      'with private RAG chat and zero-data-retention automation pipelines for SFC-licensed firms — your data never leaves your control, and PCPD, SFC & HKMA compliance is built in from day one.',
+      'with private RAG chat and zero-data-retention automation pipelines for SFC-licensed firms, with your data never leaving your control and PCPD, SFC & HKMA compliance built in from day one.',
     primaryCta: 'Watch the Pipelines Run',
     secondaryCta: 'Book a Consultation',
     badges: [
-      '3-Year No-Junior-Hire Guarantee',
+      'Juniors Do the Meaningful Work',
       '100% PCPD & SFC Compliant',
       '24/7/365 Automated',
     ],
@@ -163,10 +163,10 @@ export const siteConfig = {
   ticker: {
     label: 'LIVE OPS',
     lines: [
-      { time: '05:32:04', msg: 'HSBC NAV file ingested — 14 PII fields detected', status: 'info' },
-      { time: '05:32:05', msg: 'PII redaction engine active — masking 14 fields', status: 'processing' },
-      { time: '05:32:06', msg: 'Ephemeral sandbox 0x8F2A — RAM execution started', status: 'info' },
-      { time: '05:32:07', msg: 'Variance check: 0.3 bps — within SFC 2.0 bps ✓', status: 'pass' },
+      { time: '05:32:04', msg: 'HSBC NAV file ingested: 14 PII fields detected', status: 'info' },
+      { time: '05:32:05', msg: 'PII redaction engine active: masking 14 fields', status: 'processing' },
+      { time: '05:32:06', msg: 'Ephemeral sandbox 0x8F2A: RAM execution started', status: 'info' },
+      { time: '05:32:07', msg: 'Variance check: 0.3 bps (within SFC 2.0 bps ✓)', status: 'pass' },
       { time: '05:32:08', msg: 'Agent_Alpha: portfolio variance check ✓', status: 'pass' },
       { time: '05:32:08', msg: 'Agent_Beta: SFC Circular 24-XX output rule verified ✓', status: 'pass' },
       { time: '05:32:09', msg: 'SHA-256: e3b0c44… audit proof generated ✓', status: 'pass' },
@@ -185,28 +185,28 @@ export const siteConfig = {
         label: 'Secure Ingest & Mask',
         sub: 'PII Redacted',
         tech: 'Local regex engine strips client PII (HKID, Name, Account #) before any payload leaves the perimeter.',
-        benefit: 'Eliminates PCPD risk — prevents accidental data exposure to public LLMs.',
+        benefit: 'Eliminates PCPD risk: prevents accidental data exposure to public LLMs.',
       },
       {
         id: 2,
         label: 'Ephemeral RAM Execution',
         sub: 'HK Virtual Node',
         tech: 'Payload processes inside encrypted, volatile RAM buffers on local HK/SG virtual nodes.',
-        benefit: 'Zero data retention — data exists in memory only during execution and leaves 0 footprint.',
+        benefit: 'Zero data retention: data exists in memory only during execution and leaves 0 footprint.',
       },
       {
         id: 3,
         label: 'AI-vs-AI Governance',
         sub: 'SFC Rule Verified',
         tech: 'Multi-agent validation checks outputs against SFC Circular rules and custom tolerance thresholds.',
-        benefit: 'Audit-ready accuracy — prevents AI hallucinations from reaching client-facing reports.',
+        benefit: 'Audit-ready accuracy: prevents AI hallucinations from reaching client-facing reports.',
       },
       {
         id: 4,
         label: 'Audit Dispatch',
         sub: 'SHA-256 Proof',
         tech: 'Clean report written back to Xero/Slack; RAM wiped; cryptographic proof logged.',
-        benefit: 'Automated compliance proof — provides verifiable proof for internal and SFC regulators.',
+        benefit: 'Automated compliance proof: provides verifiable proof for internal and SFC regulators.',
       },
     ],
     ctaButton: 'Run the Full Interactive Demo →',
@@ -220,10 +220,10 @@ export const siteConfig = {
 
   video: {
     eyebrow: 'See It in Action',
-    heading: '33-Second Live Pipeline Execution',
+    heading: 'Ask the Pipeline: 60-Second Demo',
     subtext:
-      'Watch the pipeline ingest data, verify identities, reconcile records, and dispatch audit results. Fully automated.',
-    videoSrc: '/workflow-3-video.mp4',
+      'Watch a Zero-Data-Retention agent answer live questions, pulling custodial valuations, screening sanctions lists, and routing exceptions to your sign-off. Fully automated.',
+    videoSrc: '/jsc-agent-chat.mp4',
     videoAriaLabel: 'Pipeline workflow demo video',
     fullscreenAriaLabel: 'Expand full screen',
   },
@@ -236,8 +236,8 @@ export const siteConfig = {
       { label: 'Audit', sub: 'SHA-256 Proof' },
     ],
     ariaLabel:
-      'Animated pipeline: data flows through four stages — ingest, ZDR RAM, AI-vs-AI verify, audit report',
-    header: 'Pipeline Engine — Live',
+      'Animated pipeline: data flows through four stages: ingest, ZDR RAM, AI-vs-AI verify, audit report',
+    header: 'Pipeline Engine: Live',
     annotations: {
       left: 'Sources',
       center: 'ZDR encrypted',
@@ -262,21 +262,21 @@ export const siteConfig = {
     },
     benefits: {
       custodian:
-        'Portfolio valuations land in one place before markets open — no portal logins at 5:30 AM, no manual NAV chasing, no stale numbers in client reports.',
+        'Portfolio valuations land in one place before markets open: no portal logins at 5:30 AM, no manual NAV chasing, no stale numbers in client reports.',
       aladdin:
-        'NAV and market-value checks run against live benchmark data every cycle — position pulls and pricing lookups stop being a manual daily chore.',
+        'NAV and market-value checks run against live benchmark data every cycle: position pulls and pricing lookups stop being a manual daily chore.',
       microsoft365:
-        'Statements, spreadsheets, and alerts flow into the pipeline the moment they arrive — nothing waits on someone opening Outlook, and Excel workbooks are processed without a human touch.',
+        'Statements, spreadsheets, and alerts flow into the pipeline the moment they arrive: nothing waits on someone opening Outlook, and Excel workbooks are processed without a human touch.',
       google:
-        'Invoices and statements move from inbox to pipeline automatically — no manual downloads, no missed attachments, no re-keying into spreadsheets.',
+        'Invoices and statements move from inbox to pipeline automatically: no manual downloads, no missed attachments, no re-keying into spreadsheets.',
       omnichannel:
-        'Exceptions reach the right person in seconds, wherever the team works — nothing gets lost in chat noise between Teams, Slack, and WhatsApp.',
+        'Exceptions reach the right person in seconds, wherever the team works: nothing gets lost in chat noise between Teams, Slack, and WhatsApp.',
       granola:
-        'Decisions made in meetings turn into executed actions automatically — no one has to transcribe notes or chase follow-through.',
+        'Decisions made in meetings turn into executed actions automatically: no one has to transcribe notes or chase follow-through.',
       notion:
-        'Documentation always matches what the pipeline actually does — auditors and new hires see current runbooks, not outdated screenshots.',
+        'Documentation always matches what the pipeline actually does: auditors and new hires see current runbooks, not outdated screenshots.',
       xero:
-        'Month-end closes on time with anomalies flagged in advance — reconciliation no longer eats a week of finance-team hours.',
+        'Month-end closes on time with anomalies flagged in advance: reconciliation no longer eats a week of finance-team hours.',
     } as Record<string, string>,
   },
 
@@ -312,7 +312,7 @@ export const siteConfig = {
 
   roadmap: {
     eyebrow: 'Grant Deployment',
-    heading: 'CCMF — HKD 100,000 Budget Roadmap',
+    heading: 'CCMF: HKD 100,000 Budget Roadmap',
     subtext:
       'Transparent 6-month allocation of the Cyberport Creative Micro Fund grant across engineering, compliance, infrastructure, and go-to-market.',
     items: [
@@ -351,7 +351,7 @@ export const siteConfig = {
     eyebrow: 'Ready to Eliminate Operational Friction',
     heading: 'Your compliance-first pipeline is one conversation away.',
     subtext:
-      'Every JS&C solution is bespoke — mapped to your internal compliance matrix, custodian stack, and software architecture.',
+      'Every JS&C solution is bespoke: mapped to your internal compliance matrix, custodian stack, and software architecture.',
     primaryCta: 'Book a Consultation',
     secondaryCta: 'Watch the Demo',
   },
@@ -390,17 +390,17 @@ export const siteConfig = {
       'nav-recon': {
         title: 'Multi-Custodian NAV Consolidation',
         description:
-          'Watch a ZDR-compliant agent pull custodial valuations from HSBC and UBS, cross-reference against BlackRock Aladdin benchmarks, and run SFC variance checks — all in a single ephemeral pipeline with zero data persisted.',
+          'Watch a ZDR-compliant agent pull custodial valuations from HSBC and UBS, cross-reference against BlackRock Aladdin benchmarks, and run SFC variance checks, all in a single ephemeral pipeline with zero data persisted.',
       },
       'teams-transcript': {
         title: 'Teams Transcript Automation',
         description:
-          'Watch a ZDR-compliant agent pull a meeting transcript straight from Microsoft Teams via Graph API, cross-reference decisions against Outlook financial threads and OneDrive reports, and run multi-pass NLP — routing flagged items to human review.',
+          'Watch a ZDR-compliant agent pull a meeting transcript straight from Microsoft Teams via Graph API, cross-reference decisions against Outlook financial threads and OneDrive reports, and run multi-pass NLP, routing flagged items to human review.',
       },
       'rag-chatbot': {
         title: 'Private RAG Assistant',
         description:
-          'Watch a ZDR-compliant private RAG assistant answer a question by linking your Excel risk policies, BlackRock Aladdin positions, and OneDrive compliance SOPs — masking PII, embedding in ephemeral RAM, and answering with grounded source citations.',
+          'Watch a ZDR-compliant private RAG assistant answer a question by linking your Excel risk policies, BlackRock Aladdin positions, and OneDrive compliance SOPs, masking PII, embedding in ephemeral RAM, and answering with grounded source citations.',
       },
     },
   },
@@ -411,11 +411,11 @@ JS&C Automation is a compliance-first Agentic AI middleware provider for SFC-lic
 
 ## Description
 
-Zero-Data-Retention (ZDR) multi-agent AI pipelines that process client data in ephemeral RAM sandboxes. Raw data vanishes immediately after execution — no persistent storage, no third-party model training, full PCPD compliance.
+Zero-Data-Retention (ZDR) multi-agent AI pipelines that process client data in ephemeral RAM sandboxes. Raw data vanishes immediately after execution: no persistent storage, no third-party model training, full PCPD compliance.
 
 Key differentiators:
-- ZDR (Zero-Data-Retention) architecture — data processed in ephemeral RAM, never stored
-- AI-vs-AI governance — multi-agent validation against SFC circulars and HKMA guidelines
+- ZDR (Zero-Data-Retention) architecture: data processed in ephemeral RAM, never stored
+- AI-vs-AI governance: multi-agent validation against SFC circulars and HKMA guidelines
 - Human-in-the-Loop validation gates on every workflow
 - Cryptographic audit trails for SFC and HKMA compliance
 - Hong Kong virtual node deployment
@@ -464,7 +464,7 @@ Open Knowledge Format bundle (Google-backed, markdown with YAML frontmatter):
 - https://automation.jonathansimpson.co/okf/pricing.md
 `,
 
-  pricingMd: `# Pricing — JS&C Automation
+  pricingMd: `# Pricing | JS&C Automation
 
 Pricing is bespoke per build. Each deployment includes setup, integration, and recurring infrastructure costs.
 

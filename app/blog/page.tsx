@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { blogPosts } from '@/content/blog/posts'
 import { siteConfig } from '@/config/siteConfig'
@@ -53,29 +54,42 @@ export default function BlogPage() {
             </Link>
           </div>
         ) : (
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="panel-card p-5 block no-underline group"
+                className="panel-card block no-underline group overflow-hidden"
               >
-                <p className="text-[0.72rem] uppercase tracking-[0.06em] text-jsc-muted">
-                  {new Date(post.date).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric',
-                  })}
-                </p>
-                <h2 className="font-serif text-[1.15rem] text-jsc-ink mt-2 leading-snug group-hover:text-jsc-accent transition-colors">
-                  {post.title}
-                </h2>
-                <p className="text-jsc-muted text-[0.85rem] mt-2 leading-relaxed line-clamp-3">
-                  {post.description}
-                </p>
-                <span className="inline-block mt-4 text-[0.72rem] uppercase tracking-[0.06em] text-jsc-accent font-medium">
-                  {siteConfig.blog.readMore}
-                </span>
+                {post.image ? (
+                  <div className="relative aspect-[16/9] w-full">
+                    <Image
+                      src={post.image.src}
+                      alt={post.image.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : null}
+                <div className="p-5">
+                  <p className="text-[0.72rem] uppercase tracking-[0.06em] text-jsc-muted">
+                    {new Date(post.date).toLocaleDateString('en-GB', {
+                      day: 'numeric',
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                  </p>
+                  <h2 className="font-serif text-[1.15rem] xl:text-[1.05rem] text-jsc-ink mt-2 leading-snug group-hover:text-jsc-accent transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-jsc-muted text-[0.85rem] mt-2 leading-relaxed line-clamp-3">
+                    {post.description}
+                  </p>
+                  <span className="inline-block mt-4 text-[0.72rem] uppercase tracking-[0.06em] text-jsc-accent font-medium">
+                    {siteConfig.blog.readMore}
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

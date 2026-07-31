@@ -23,7 +23,7 @@ Consolidated "What's Left" task sheet, organized by priority and category.
 - [x] **Icon Sizing:** Scale up icons site-wide—they are currently too small relative to surrounding copy.
 - [ ] **Tighten Section Spacing:** Reduce excessive vertical padding/whitespace between sections.
 - [ ] **Feature Core Selling Points:** Boost visibility (contrast, size, highlighting) for:
-  > **3-YEAR NO-JUNIOR-HIRE GUARANTEE** | **100% PCPD & SFC COMPLIANT** | **24/7/365 AUTOMATED**
+  > **JUNIORS DO THE MEANINGFUL WORK** | **100% PCPD & SFC COMPLIANT** | **24/7/365 AUTOMATED**
 
 - [ ] **Fix Hub Header Alignment:** Fix line-wrap on the "Compliant" text in the Hub section so it fits neatly on a single line.
 - [ ] **Slow Down Live Ops Ticker:** Decrease animation/scroll speed for the ticker (`HSBC NAV file ingested... | PII redaction engine active...`). It currently cycles too fast to read.

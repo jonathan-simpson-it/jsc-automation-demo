@@ -84,7 +84,7 @@ export const workflows: Workflow[] = [
         subtasks: [
           'downloading HSBC_Custodian_NAV_20260728.pdf (214 KB)',
           'downloading UBS_Portfolio_Valuation_20260728.pdf (186 KB)',
-          'detecting PII fields across both documents — 4 found',
+          'detecting PII fields across both documents: 4 found',
           'applying redaction masks to all PII spans',
         ],
       },
@@ -140,7 +140,7 @@ export const workflows: Workflow[] = [
           'Agent_Alpha: computing per-position variance across 3 custodians',
           'Agent_Alpha: identifying largest deltas and outliers',
           'Agent_Beta: evaluating SFC Circular 24-XX compliance rules',
-          'Agent_Beta: verifying MNPI isolation — no client PII in consolidated output',
+          'Agent_Beta: verifying MNPI isolation: no client PII in consolidated output',
         ],
       },
       {
@@ -205,7 +205,7 @@ export const workflows: Workflow[] = [
       {
         type: 'prose',
         delayBefore: 600,
-        text: 'Graph API webhook received — the Investment Committee briefing has concluded. Pulling the transcript directly from Teams and extracting decisions.',
+        text: 'Graph API webhook received: the Investment Committee briefing has concluded. Pulling the transcript directly from Teams and extracting decisions.',
       },
       {
         type: 'thinking',
@@ -218,23 +218,23 @@ export const workflows: Workflow[] = [
         type: 'tools',
         delayBefore: 300,
         tools: [
-          { brandId: 'teams', name: 'MS Teams', action: 'Fetching transcript via Graph API — calls/records' },
+          { brandId: 'teams', name: 'MS Teams', action: 'Fetching transcript via Graph API: calls/records' },
         ],
       },
       {
         type: 'subtasks',
         delayBefore: 300,
         subtasks: [
-          'meeting duration: 34 minutes — 6 participants identified',
+          'meeting duration: 34 minutes, 6 participants identified',
           'extracting discussion segments: market outlook, portfolio review, risk limits',
-          'detecting action items — 3 found, 2 flagged as high-priority',
+          'detecting action items: 3 found, 2 flagged as high-priority',
           'archiving raw transcript to OneDrive compliance folder',
         ],
       },
       {
         type: 'prose',
         delayBefore: 500,
-        text: 'Transcript ingested natively from Teams — no third-party meeting tool required. 3 action items detected, 2 high priority.',
+        text: 'Transcript ingested natively from Teams: no third-party meeting tool required. 3 action items detected, 2 high priority.',
       },
 
       {
@@ -254,7 +254,7 @@ export const workflows: Workflow[] = [
         type: 'tools',
         delayBefore: 400,
         tools: [
-          { brandId: 'outlook', name: 'Outlook', action: 'Scanning related email threads — 3 matches' },
+          { brandId: 'outlook', name: 'Outlook', action: 'Scanning related email threads: 3 matches' },
         ],
       },
       {
@@ -271,7 +271,7 @@ export const workflows: Workflow[] = [
           'scanning Outlook: 3 threads referencing HKEX liquidity and USDHKD peg',
           'opening OneDrive attachment: Q2_Position_Report.xlsx (412 KB)',
           'extracting figures: China stimulus exposure, HKEX volume trends',
-          'detecting PII across emails — 1 field masked before processing',
+          'detecting PII across emails: 1 field masked before processing',
         ],
       },
       {
@@ -297,10 +297,10 @@ export const workflows: Workflow[] = [
         type: 'subtasks',
         delayBefore: 400,
         subtasks: [
-          'pass 1: entity extraction — HKEX, China stimulus, USDHKD peg, liquidity',
-          'pass 2: sentiment classification — 10 positive, 3 neutral, 1 negative',
+          'pass 1: entity extraction → HKEX, China stimulus, USDHKD peg, liquidity',
+          'pass 2: sentiment classification → 10 positive, 3 neutral, 1 negative',
           'pass 3: agenda alignment scoring against committee decisions',
-          'pass 4: contradiction detection — 1 misalignment flagged',
+          'pass 4: contradiction detection → 1 misalignment flagged',
         ],
       },
       {
@@ -317,7 +317,7 @@ export const workflows: Workflow[] = [
       {
         type: 'prose',
         delayBefore: 600,
-        text: '1 decision flagged as contradictory to email and report data — routing to Human-in-the-Loop for review. Remaining 2 actions auto-approved.',
+        text: '1 decision flagged as contradictory to email and report data: routing to Human-in-the-Loop for review. Remaining 2 actions auto-approved.',
       },
 
       {
@@ -369,7 +369,7 @@ export const workflows: Workflow[] = [
       {
         type: 'thinking',
         delayBefore: 200,
-        thinkingLabel: 'Parsing query intent — identified entities: China real estate, exposure limit, Aladdin position. Linking to approved knowledge sources...',
+        thinkingLabel: 'Parsing query intent → identified entities: China real estate, exposure limit, Aladdin position. Linking to approved knowledge sources...',
         thinkingDuration: 1800,
         capacity: 'medium',
       },
@@ -391,16 +391,16 @@ export const workflows: Workflow[] = [
         type: 'tools',
         delayBefore: 400,
         tools: [
-          { brandId: 'onedrive', name: 'OneDrive', action: 'Fetching compliance SOP — client exposure limits' },
+          { brandId: 'onedrive', name: 'OneDrive', action: 'Fetching compliance SOP: client exposure limits' },
         ],
       },
       {
         type: 'subtasks',
         delayBefore: 300,
         subtasks: [
-          'linked 3 sources — Risk_Policy_2026.xlsx, Aladdin IBOR export, OneDrive compliance SOP',
-          'authenticating against vault credentials — session tokens rotated',
-          'detecting PII fields across documents — 2 found',
+          'linked 3 sources: Risk_Policy_2026.xlsx, Aladdin IBOR export, OneDrive compliance SOP',
+          'authenticating against vault credentials: session tokens rotated',
+          'detecting PII fields across documents: 2 found',
           'applying redaction masks to all PII spans before any processing',
         ],
       },
@@ -428,14 +428,14 @@ export const workflows: Workflow[] = [
         delayBefore: 400,
         subtasks: [
           'chunking 3 documents → 142 chunks (512 tokens each)',
-          'computing embeddings in RAM sandbox 0x7C41 — 0 bytes persisted',
-          'building ephemeral retrieval index — cleared on session end',
+          'computing embeddings in RAM sandbox 0x7C41: 0 bytes persisted',
+          'building ephemeral retrieval index: cleared on session end',
         ],
       },
       {
         type: 'prose',
         delayBefore: 500,
-        text: 'Chunks indexed in volatile memory only. No vector database, no cloud persistence — ZDR enforced end-to-end.',
+        text: 'Chunks indexed in volatile memory only. No vector database, no cloud persistence: ZDR enforced end-to-end.',
       },
 
       {
@@ -447,7 +447,7 @@ export const workflows: Workflow[] = [
       {
         type: 'thinking',
         delayBefore: 300,
-        thinkingLabel: 'Running semantic search across 142 indexed chunks — ranking by cosine similarity...',
+        thinkingLabel: 'Running semantic search across 142 indexed chunks, ranking by cosine similarity...',
         thinkingDuration: 3000,
         capacity: 'high',
       },
@@ -456,9 +456,9 @@ export const workflows: Workflow[] = [
         delayBefore: 400,
         subtasks: [
           'retrieved 5 chunks relevant to China real estate exposure',
-          'chunk 037 — Risk_Policy_2026.xlsx (similarity 0.94)',
-          'chunk 102 — Aladdin IBOR export (similarity 0.91)',
-          'chunk 118 — OneDrive compliance SOP (similarity 0.88)',
+          'chunk 037: Risk_Policy_2026.xlsx (similarity 0.94)',
+          'chunk 102: Aladdin IBOR export (similarity 0.91)',
+          'chunk 118: OneDrive compliance SOP (similarity 0.88)',
         ],
       },
       {
@@ -493,7 +493,7 @@ export const workflows: Workflow[] = [
       {
         type: 'prose',
         delayBefore: 400,
-        text: 'China real estate exposure is capped at 15% of NAV per the 2026 risk policy (chunk 037). Aladdin shows a current position of HKD 34.2M — 11.8% of NAV (chunk 102) — leaving HKD 9.3M of headroom. Figures cross-checked against the compliance SOP (chunk 118). No policy breach.',
+        text: 'China real estate exposure is capped at 15% of NAV per the 2026 risk policy (chunk 037). Aladdin shows a current position of HKD 34.2M (11.8% of NAV, chunk 102), leaving HKD 9.3M of headroom. Figures cross-checked against the compliance SOP (chunk 118). No policy breach.',
       },
       {
         type: 'tools',
@@ -507,7 +507,7 @@ export const workflows: Workflow[] = [
         delayBefore: 300,
         subtasks: [
           'generating SHA-256 audit proof → 5c1b9e8f2a4d...',
-          'citation log appended — 3 sources, 5 chunks, 0 ungrounded claims',
+          'citation log appended: 3 sources, 5 chunks, 0 ungrounded claims',
           '[ZDR Gateway] Embedding buffer + index wiped. 0 bytes persisted to disk.',
         ],
       },

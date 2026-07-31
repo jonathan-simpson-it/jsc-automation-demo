@@ -66,7 +66,7 @@ The application strictly enforces the JS&C Editorial Design Tokens to maintain v
 **Eyebrow:** 2026 Strategic Briefing & Live Demo
 **Headline:** Automating the Hub: Compliant Agentic AI for HK Finance.
 **Subheadline:** Demonstrates $70\%$ operational cost reduction using Zero-Data-Retention multi-agent pipelines for SFC-licensed SMEs.
-**Key Trust Badges:** "3-Year No-Junior-Hire Guarantee Included" | "100% PCPD & SFC Compliant".
+**Key Trust Badges:** "Juniors Do the Meaningful Work" | "100% PCPD & SFC Compliant".
 
 ### Module 3: Interactive Pipeline Simulator (#simulator)
 

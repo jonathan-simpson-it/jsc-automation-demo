@@ -22,7 +22,7 @@ export default function RoadmapSection() {
                   {item.label}
                 </span>
                 <span className="font-mono text-[0.85rem] text-jsc-ink tabular-nums">
-                  {item.pct}% — HKD {item.amount.toLocaleString()}
+                  {item.pct}% · HKD {item.amount.toLocaleString()}
                 </span>
               </div>
               <div className="relative h-5 bg-jsc-accent-soft rounded-full overflow-hidden border border-jsc-line">

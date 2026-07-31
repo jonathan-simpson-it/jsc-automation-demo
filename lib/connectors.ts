@@ -71,7 +71,7 @@ export const connectors: Connector[] = [
     functionLabel: 'Email, spreadsheet, drive attachment & calendar schedule ingest',
     stackedBrandIds: ['google', 'gmail', 'googlesheets', 'googledocs', 'googledrive', 'googlecalendar'],
     payloadExample: JSON.stringify(
-      { userId: 'admin@firm.hk', messages: [{ id: '18f8a2b', from: 'reports@custodian.com', subject: 'Daily NAV — 2026-07-28', attachments: ['nav_20260728.xlsx'] }] },
+      { userId: 'admin@firm.hk', messages: [{ id: '18f8a2b', from: 'reports@custodian.com', subject: 'Daily NAV (2026-07-28)', attachments: ['nav_20260728.xlsx'] }] },
       null, 2
     ),
   },
@@ -145,7 +145,7 @@ export const connectors: Connector[] = [
     protocolBadge: 'BOT TOKEN',
     functionLabel: 'Compliance alert broadcast',
     payloadExample: JSON.stringify(
-      { channel: '#compliance-alerts', blocks: [{ type: 'header', text: 'Pipeline Exception — SFC Type 9' }, { type: 'section', text: 'NAV variance > 2bps flagged.' }] },
+      { channel: '#compliance-alerts', blocks: [{ type: 'header', text: 'Pipeline Exception: SFC Type 9' }, { type: 'section', text: 'NAV variance > 2bps flagged.' }] },
       null, 2
     ),
   },
@@ -173,7 +173,7 @@ export const connectors: Connector[] = [
     protocolBadge: 'BUSINESS API',
     functionLabel: 'Urgent compliance alerts',
     payloadExample: JSON.stringify(
-      { to: '+85291234567', type: 'template', template: { name: 'pipeline_alert', language: { code: 'en' }, components: [{ type: 'body', parameters: [{ type: 'text', text: 'SFC Type 9 pipeline exception — review required.' }] }] } },
+      { to: '+85291234567', type: 'template', template: { name: 'pipeline_alert', language: { code: 'en' }, components: [{ type: 'body', parameters: [{ type: 'text', text: 'SFC Type 9 pipeline exception: review required.' }] }] } },
       null, 2
     ),
   },

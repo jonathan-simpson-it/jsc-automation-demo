@@ -32,7 +32,7 @@ export function buildHomeMd() {
   const c = siteConfig
   const sections: string[] = []
 
-  sections.push(`# ${c.brandName} — ${c.seo.defaultTitle}`)
+  sections.push(`# ${c.brandName} | ${c.seo.defaultTitle}`)
   sections.push('')
   sections.push(c.seo.defaultDescription)
   sections.push('')
@@ -49,7 +49,7 @@ export function buildHomeMd() {
   sections.push('## Zero-Data-Retention Architecture (4 stages)')
   sections.push('')
   for (const stage of c.howItWorks.stages) {
-    sections.push(`### ${stage.id}. ${stage.label} — ${stage.sub}`)
+    sections.push(`### ${stage.id}. ${stage.label}: ${stage.sub}`)
     sections.push('')
     sections.push(stage.tech)
     sections.push('')
@@ -75,11 +75,11 @@ export function buildHomeMd() {
 
   sections.push('## Pricing model')
   sections.push('')
-  sections.push('Bespoke per build — setup/integration quote plus recurring backend and server hosting fee. Benchmark retainers for reference:')
+  sections.push('Bespoke per build: setup/integration quote plus recurring backend and server hosting fee. Benchmark retainers for reference:')
   sections.push('')
   for (const tier of c.pricing.tiers) {
     sections.push(
-      `- **${tier.name}** (${tier.subtitle}): ${tier.scope} — ${tier.custom ? 'custom' : `HKD ${tier.monthly.toLocaleString()}/month`}`
+      `- **${tier.name}** (${tier.subtitle}): ${tier.scope}, ${tier.custom ? 'custom' : `HKD ${tier.monthly.toLocaleString()}/month`}`
     )
   }
   sections.push('')
@@ -87,7 +87,7 @@ export function buildHomeMd() {
   sections.push('## CCMF Grant Roadmap')
   sections.push('')
   for (const item of c.roadmap.items) {
-    sections.push(`- **${item.label}** (${item.pct}% — HKD ${item.amount.toLocaleString()}): ${item.description}`)
+    sections.push(`- **${item.label}** (${item.pct}%, HKD ${item.amount.toLocaleString()}): ${item.description}`)
   }
   sections.push('')
 
@@ -112,7 +112,7 @@ export function buildDemoMd() {
   const c = siteConfig
   const sections: string[] = []
 
-  sections.push(`# Live Demo — ${c.seo.demo.title}`)
+  sections.push(`# Live Demo: ${c.seo.demo.title}`)
   sections.push('')
   sections.push(c.seo.demo.description)
   sections.push('')
@@ -144,7 +144,7 @@ export function buildBlogMd() {
   const c = siteConfig
   const sections: string[] = []
 
-  sections.push(`# Blog — ${c.brandName}`)
+  sections.push(`# Blog | ${c.brandName}`)
   sections.push('')
   sections.push(c.seo.blog.description)
   sections.push('')
@@ -166,6 +166,8 @@ export function buildBlogMd() {
       sections.push('')
       sections.push(`- Published: ${post.date}`)
       sections.push(`- URL: ${c.url}/blog/${post.slug}`)
+      sections.push(`- Markdown mirror: ${c.url}/blog/${post.slug}/blog.md`)
+      sections.push(`- OKF mirror: ${c.url}/okf/blog/${post.slug}/blog.md`)
       sections.push('')
       sections.push(post.description)
       sections.push('')
@@ -179,7 +181,7 @@ export function buildOkfIndexMd() {
   const c = siteConfig
   const updated = new Date().toISOString().slice(0, 10)
 
-  const body = `# JS&C Automation — Open Knowledge Bundle
+  const body = `# JS&C Automation: Open Knowledge Bundle
 
 ${c.seo.defaultDescription}
 
@@ -187,22 +189,22 @@ This bundle describes the site in machine-readable markdown. Each file covers on
 
 ## Files
 
-- [site.md](/okf/site.md) — ${c.hero.headline.join(' ')} (homepage)
-- [demo.md](/okf/demo.md) — ${c.seo.demo.ogTitle}
-- [blog.md](/okf/blog.md) — Blog listing
-- [pricing.md](/okf/pricing.md) — Pricing model
+- [site.md](/okf/site.md): ${c.hero.headline.join(' ')} (homepage)
+- [demo.md](/okf/demo.md): ${c.seo.demo.ogTitle}
+- [blog.md](/okf/blog.md): Blog listing and per-post mirrors
+- [pricing.md](/okf/pricing.md): Pricing model
 
 ## See also
 
-- [llms.txt](/llms.txt) — plain-text site overview
-- [pricing.md](/pricing.md) — pricing for AI agents
+- [llms.txt](/llms.txt): plain-text site overview
+- [pricing.md](/pricing.md): pricing for AI agents
 - [Homepage](/)
 
 Contact: ${c.primaryCta.href}
 `
 
   return okfFrontmatter({
-    title: 'JS&C Automation — Open Knowledge Bundle',
+    title: 'JS&C Automation: Open Knowledge Bundle',
     description: c.seo.defaultDescription,
     url: `${c.url}/okf/index.md`,
     updated,
@@ -243,12 +245,21 @@ export function buildOkfBlogMd() {
 
   const body = buildBlogMd()
 
+  const posts = [...blogPosts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  )
+  const postIndex = posts.length
+    ? `\n## Individual post files\n\n${posts
+        .map((post) => `- [${post.title}](${c.url}/okf/blog/${post.slug}/blog.md)`)
+        .join('\n')}\n`
+    : ''
+
   return okfFrontmatter({
-    title: `Blog — ${c.brandName}`,
+    title: `Blog | ${c.brandName}`,
     description: c.seo.blog.description,
     url: `${c.url}/okf/blog.md`,
     updated,
-  }) + body
+  }) + body + postIndex
 }
 
 export function buildOkfPricingMd() {
@@ -258,7 +269,7 @@ export function buildOkfPricingMd() {
   const body = c.pricingMd
 
   return okfFrontmatter({
-    title: 'Pricing — JS&C Automation',
+    title: 'Pricing | JS&C Automation',
     description: 'Bespoke pricing per build with recurring infrastructure fees.',
     url: `${c.url}/okf/pricing.md`,
     updated,

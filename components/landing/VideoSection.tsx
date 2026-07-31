@@ -49,7 +49,7 @@ export default function VideoSection() {
           </p>
         </div>
 
-        <div className="video-app-frame mx-auto" style={{ maxWidth: 'min(100%, calc(65vh * 2530 / 1856))' }}>
+        <div className="video-app-frame mx-auto" style={{ maxWidth: 'min(100%, calc(65vh * 16 / 9))' }}>
           <div className="relative bg-[#161718]">
             <video
               ref={videoRef}

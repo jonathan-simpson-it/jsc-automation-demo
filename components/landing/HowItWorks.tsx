@@ -281,7 +281,7 @@ export default function HowItWorks() {
                   {siteConfig.howItWorks.cardLabels.stagePrefix} {String(active).padStart(2, '0')}
                 </span>
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.1em] text-jsc-muted">
-                  — {stages[active - 1].label}
+                  : {stages[active - 1].label}
                 </span>
                 {paused && (
                   <span className="font-mono text-[0.55rem] uppercase tracking-[0.08em] text-jsc-accent ml-auto">
