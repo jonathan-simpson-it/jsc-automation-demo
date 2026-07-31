@@ -5,6 +5,7 @@ import { workflows } from '@/lib/workflow-data'
 import { useAgentEngine } from '@/lib/agent-engine'
 import TopBar from './TopBar'
 import CanvasStream from './CanvasStream'
+import { siteConfig } from '@/config/siteConfig'
 
 export default function DemoConsole() {
   const [workflowIndex, setWorkflowIndex] = useState(0)
@@ -51,14 +52,13 @@ export default function DemoConsole() {
         />
       </div>
 
-      {/* Controls bar */}
       <div className="flex-shrink-0 border-t border-white/10 bg-[#0D0F14]">
         <div className="flex items-center justify-between px-5 py-3">
           <div className="flex items-center gap-3">
             <button
               onClick={togglePlay}
               className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer"
-              aria-label={state.status === 'running' ? 'Pause' : state.status === 'complete' ? 'Replay' : 'Play'}
+              aria-label={state.status === 'running' ? siteConfig.demo.pauseAriaLabel : state.status === 'complete' ? siteConfig.demo.replayAriaLabel : siteConfig.demo.playAriaLabel}
             >
               {state.status === 'running' ? (
                 <span className="w-2.5 h-2.5 bg-white block" />
@@ -86,7 +86,7 @@ export default function DemoConsole() {
               disabled={state.status === 'idle'}
               className="px-2 py-1 rounded text-[0.6rem] font-mono text-white/40 hover:text-white/70 border border-transparent hover:border-white/20 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              Reset
+              {siteConfig.demo.resetLabel}
             </button>
 
             {state.status !== 'idle' && (
@@ -105,12 +105,12 @@ export default function DemoConsole() {
                   {'\u26A1'} {workflow.completionMetric}
                 </span>
                 <a
-                  href="https://jonathansimpson.co/#contact"
+                  href={siteConfig.primaryCta.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-1.5 rounded-full bg-jsc-accent text-black text-[0.65rem] font-mono uppercase tracking-[0.04em] font-medium hover:bg-white transition-colors no-underline"
                 >
-                  Book Consultation
+                  {siteConfig.demo.consultationCta}
                 </a>
               </>
             )}

@@ -14,6 +14,7 @@ export type StepType = 'stage' | 'thinking' | 'prose' | 'tools' | 'subtasks' | '
 export interface WorkflowStep {
   type: StepType
   delayBefore?: number
+  variant?: 'query'
 
   stageNum?: string
   stageTitle?: string
@@ -191,25 +192,25 @@ export const workflows: Workflow[] = [
   },
 
   {
-    id: 'teams-synthesis',
-    label: 'Teams & Granola',
-    subtitle: 'Meeting transcript + live sentiment aggregation',
+    id: 'teams-transcript',
+    label: 'Teams Transcript',
+    subtitle: 'Meeting transcript + financial records aggregation',
     steps: [
       {
         type: 'stage',
         delayBefore: 0,
         stageNum: '01',
-        stageTitle: 'Meeting Transcript Ingestion',
+        stageTitle: 'Transcript Capture via Graph API',
       },
       {
         type: 'prose',
         delayBefore: 600,
-        text: 'Webhook received from Granola — an Investment Committee briefing just concluded. Let me parse the full transcript and extract decisions.',
+        text: 'Graph API webhook received — the Investment Committee briefing has concluded. Pulling the transcript directly from Teams and extracting decisions.',
       },
       {
         type: 'thinking',
         delayBefore: 200,
-        thinkingLabel: 'Extracting action items and key decisions from meeting transcript...',
+        thinkingLabel: 'Fetching meeting transcript via Microsoft Graph API...',
         thinkingDuration: 2000,
         capacity: 'medium',
       },
@@ -217,7 +218,7 @@ export const workflows: Workflow[] = [
         type: 'tools',
         delayBefore: 300,
         tools: [
-          { brandId: 'granola', name: 'Granola', action: 'Ingesting Investment Committee Briefing transcript' },
+          { brandId: 'teams', name: 'MS Teams', action: 'Fetching transcript via Graph API — calls/records' },
         ],
       },
       {
@@ -227,48 +228,56 @@ export const workflows: Workflow[] = [
           'meeting duration: 34 minutes — 6 participants identified',
           'extracting discussion segments: market outlook, portfolio review, risk limits',
           'detecting action items — 3 found, 2 flagged as high-priority',
-          'classifying decisions: 4 binding, 1 advisory, 0 deferred',
+          'archiving raw transcript to OneDrive compliance folder',
         ],
       },
       {
         type: 'prose',
         delayBefore: 500,
-        text: '6 participants, 3 action items detected. 2 high-priority actions require immediate cross-referencing with live team communications.',
+        text: 'Transcript ingested natively from Teams — no third-party meeting tool required. 3 action items detected, 2 high priority.',
       },
 
       {
         type: 'stage',
         delayBefore: 800,
         stageNum: '02',
-        stageTitle: 'Live Communication Mining',
+        stageTitle: 'Financial Record Cross-Reference',
       },
       {
         type: 'thinking',
         delayBefore: 200,
-        thinkingLabel: 'Querying Microsoft Teams channels for related discussions...',
-        thinkingDuration: 2000,
+        thinkingLabel: 'Cross-referencing meeting decisions against Outlook financial threads and OneDrive reports...',
+        thinkingDuration: 2200,
         capacity: 'medium',
       },
       {
         type: 'tools',
         delayBefore: 400,
         tools: [
-          { brandId: 'teams', name: 'MS Teams', action: 'Querying Graph API — #market-updates, #investment-committee' },
+          { brandId: 'outlook', name: 'Outlook', action: 'Scanning related email threads — 3 matches' },
+        ],
+      },
+      {
+        type: 'tools',
+        delayBefore: 400,
+        tools: [
+          { brandId: 'onedrive', name: 'OneDrive', action: 'Opening Q2 position report attachment' },
         ],
       },
       {
         type: 'subtasks',
         delayBefore: 300,
         subtasks: [
-          'fetching messages from past 24 hours across 2 channels',
-          '14 messages retrieved from 4 active threads',
-          'extracting references: HKEX liquidity, China stimulus, USDHKD peg',
+          'scanning Outlook: 3 threads referencing HKEX liquidity and USDHKD peg',
+          'opening OneDrive attachment: Q2_Position_Report.xlsx (412 KB)',
+          'extracting figures: China stimulus exposure, HKEX volume trends',
+          'detecting PII across emails — 1 field masked before processing',
         ],
       },
       {
         type: 'prose',
         delayBefore: 500,
-        text: 'Retrieved 14 messages from 4 threads. Market chatter clusters around HKEX liquidity and China stimulus. Ready for sentiment analysis.',
+        text: 'Cross-referenced 3 email threads and the Q2 position report. Market chatter clusters around HKEX liquidity and China stimulus.',
       },
 
       {
@@ -308,7 +317,7 @@ export const workflows: Workflow[] = [
       {
         type: 'prose',
         delayBefore: 600,
-        text: '1 decision flagged as contradictory to market chatter — routing to Human-in-the-Loop for review. Remaining 2 actions auto-approved.',
+        text: '1 decision flagged as contradictory to email and report data — routing to Human-in-the-Loop for review. Remaining 2 actions auto-approved.',
       },
 
       {
@@ -320,7 +329,7 @@ export const workflows: Workflow[] = [
       {
         type: 'thinking',
         delayBefore: 200,
-        thinkingLabel: 'Assembling synthesis report with transcript summary, sentiment breakdown, and flagged items...',
+        thinkingLabel: 'Assembling synthesis report with transcript summary, financial cross-reference, and flagged items...',
         thinkingDuration: 1500,
         capacity: 'low',
       },
@@ -328,7 +337,7 @@ export const workflows: Workflow[] = [
         type: 'tools',
         delayBefore: 300,
         tools: [
-          { brandId: 'slack', name: 'Slack', action: 'Dispatching synthesis report to #investment-committee' },
+          { brandId: 'teams', name: 'MS Teams', action: 'Posting synthesis report to #investment-committee' },
         ],
       },
       {
@@ -341,54 +350,104 @@ export const workflows: Workflow[] = [
   },
 
   {
-    id: 'kyc-recon',
-    label: 'KYC / Recon',
-    subtitle: 'Automated identity verification + statement matching',
+    id: 'rag-chatbot',
+    label: 'Private RAG',
+    subtitle: 'ZDR private knowledge assistant with retrieval-augmented generation',
     steps: [
       {
         type: 'stage',
         delayBefore: 0,
         stageNum: '01',
-        stageTitle: 'Document Intake & Classification',
+        stageTitle: 'Query & Source Link',
       },
       {
         type: 'prose',
+        variant: 'query',
         delayBefore: 600,
-        text: 'Webhook received from Outlook — new KYC package from compliance@custodian.com.hk. Classifying attachments and validating integrity.',
+        text: 'What is our China real estate exposure limit, and what does our current Aladdin position show?',
+      },
+      {
+        type: 'thinking',
+        delayBefore: 200,
+        thinkingLabel: 'Parsing query intent — identified entities: China real estate, exposure limit, Aladdin position. Linking to approved knowledge sources...',
+        thinkingDuration: 1800,
+        capacity: 'medium',
       },
       {
         type: 'tools',
         delayBefore: 300,
         tools: [
-          { brandId: 'outlook', name: 'Outlook', action: 'Parsing KYC email attachments' },
+          { brandId: 'excel', name: 'Excel', action: 'Opening Risk_Policy_2026.xlsx (412 KB)' },
+        ],
+      },
+      {
+        type: 'tools',
+        delayBefore: 400,
+        tools: [
+          { brandId: 'blackrock', name: 'BlackRock Aladdin', action: 'Fetching IBOR position export' },
+        ],
+      },
+      {
+        type: 'tools',
+        delayBefore: 400,
+        tools: [
+          { brandId: 'onedrive', name: 'OneDrive', action: 'Fetching compliance SOP — client exposure limits' },
         ],
       },
       {
         type: 'subtasks',
         delayBefore: 300,
         subtasks: [
-          'classifying Client_ID_Lam_Wing_Tung_20260728.pdf → KYC Identity Document (342 KB)',
-          'classifying Sanctions_Screening_Report_20260728.pdf → AML Screening Report (98 KB)',
-          'validating file integrity — checksums match expected values',
-          'extracting subject name and document metadata for verification pipeline',
+          'linked 3 sources — Risk_Policy_2026.xlsx, Aladdin IBOR export, OneDrive compliance SOP',
+          'authenticating against vault credentials — session tokens rotated',
+          'detecting PII fields across documents — 2 found',
+          'applying redaction masks to all PII spans before any processing',
         ],
       },
       {
         type: 'prose',
         delayBefore: 500,
-        text: '2 attachments classified and validated. Identity document ready for multi-jurisdiction verification. Proceeding to sanctions screening.',
+        text: '3 sources linked and authenticated. All PII masked before any content leaves the perimeter.',
       },
 
       {
         type: 'stage',
         delayBefore: 800,
         stageNum: '02',
-        stageTitle: 'Identity & Sanctions Verification',
+        stageTitle: 'ZDR Sanitize & Embed',
       },
       {
         type: 'thinking',
         delayBefore: 200,
-        thinkingLabel: 'Running multi-jurisdiction compliance checks — HKID, UN, OFAC, EU, PCPD...',
+        thinkingLabel: 'Chunking documents and computing embeddings inside ephemeral RAM sandbox...',
+        thinkingDuration: 2600,
+        capacity: 'high',
+      },
+      {
+        type: 'subtasks',
+        delayBefore: 400,
+        subtasks: [
+          'chunking 3 documents → 142 chunks (512 tokens each)',
+          'computing embeddings in RAM sandbox 0x7C41 — 0 bytes persisted',
+          'building ephemeral retrieval index — cleared on session end',
+        ],
+      },
+      {
+        type: 'prose',
+        delayBefore: 500,
+        text: 'Chunks indexed in volatile memory only. No vector database, no cloud persistence — ZDR enforced end-to-end.',
+      },
+
+      {
+        type: 'stage',
+        delayBefore: 800,
+        stageNum: '03',
+        stageTitle: 'Semantic Retrieval',
+      },
+      {
+        type: 'thinking',
+        delayBefore: 300,
+        thinkingLabel: 'Running semantic search across 142 indexed chunks — ranking by cosine similarity...',
         thinkingDuration: 3000,
         capacity: 'high',
       },
@@ -396,127 +455,69 @@ export const workflows: Workflow[] = [
         type: 'subtasks',
         delayBefore: 400,
         subtasks: [
-          'verifying HKID Y987654(3) — checksum valid, document not expired',
-          'screening against UN consolidated sanctions list — no matches',
-          'screening against OFAC SDN list — no matches',
-          'screening against EU consolidated list — no matches',
-          'validating data privacy compliance against HKMA / PCPD guidelines',
-          'checking PEP status database — non-PEP classification',
-          'computing aggregate risk score from 6 weighted signals',
+          'retrieved 5 chunks relevant to China real estate exposure',
+          'chunk 037 — Risk_Policy_2026.xlsx (similarity 0.94)',
+          'chunk 102 — Aladdin IBOR export (similarity 0.91)',
+          'chunk 118 — OneDrive compliance SOP (similarity 0.88)',
         ],
       },
       {
         type: 'output',
         delayBefore: 800,
         output: [
-          { label: 'Risk Score', value: '12/100 (Low)' },
-          { label: 'Sanctions Matches', value: '0' },
-          { label: 'HKMA / PCPD', value: 'Compliant' },
-          { label: 'ID Verification', value: 'Passed' },
-          { label: 'PEP Status', value: 'Non-PEP' },
-          { label: 'Auto-Approval', value: 'Recommended' },
+          { label: 'Policy Limit', value: '15% of NAV per sector' },
+          { label: 'Current China RE Position', value: 'HKD 34.2M (11.8% of NAV)' },
+          { label: 'Headroom', value: 'HKD 9.3M (3.2% of NAV)' },
+          { label: 'Retrieved Chunks', value: '5 (top score 0.94)' },
         ],
       },
       {
         type: 'prose',
         delayBefore: 600,
-        text: 'Identity verified across all 3 sanctions frameworks plus HKMA/PCPD. Risk score 12/100 — low risk classification. Proceeding to financial reconciliation.',
-      },
-
-      {
-        type: 'stage',
-        delayBefore: 800,
-        stageNum: '03',
-        stageTitle: 'Transaction Reconciliation',
-      },
-      {
-        type: 'thinking',
-        delayBefore: 300,
-        thinkingLabel: 'Running fuzzy matching engine across 48 statement entries vs 47 ledger entries...',
-        thinkingDuration: 3500,
-        capacity: 'high',
-      },
-      {
-        type: 'tools',
-        delayBefore: 400,
-        tools: [
-          { brandId: 'hsbc', name: 'HSBC Banking', action: 'Downloading HSBC Business Statement — 48 entries' },
-        ],
-      },
-      {
-        type: 'tools',
-        delayBefore: 400,
-        tools: [
-          { brandId: 'xero', name: 'Xero', action: 'Pulling Xero Ledger Export Jul 2026 — 47 entries' },
-        ],
-      },
-      {
-        type: 'subtasks',
-        delayBefore: 300,
-        subtasks: [
-          'batch 1: matching 20 statement entries against ledger — 100% match',
-          'batch 2: matching 20 statement entries against ledger — 95% match',
-          'batch 3: matching 8 statement entries against ledger — 100% match',
-          'anomaly detected: HKD 82,300 debit on 10 Jul — no corresponding ledger entry',
-          'routing unmatched item to Human-in-the-Loop queue',
-        ],
-      },
-      {
-        type: 'output',
-        delayBefore: 800,
-        output: [
-          { label: 'Transactions Matched', value: '47 / 48 (97.9%)' },
-          { label: 'Anomalies Flagged', value: '1 (HKD 82,300)' },
-          { label: 'Batch Confidence', value: '98.3%' },
-          { label: 'HITL Queue', value: '1 item pending' },
-        ],
-      },
-      {
-        type: 'prose',
-        delayBefore: 600,
-        text: '47 of 48 transactions matched at 90%+ confidence. One anomaly flagged — HKD 82,300 debit with no ledger counterpart. Sent to human review.',
+        text: 'Top matches retrieved with high confidence. All cited chunks verified against source metadata before generation.',
       },
 
       {
         type: 'stage',
         delayBefore: 800,
         stageNum: '04',
-        stageTitle: 'Compliance Report & Dispatch',
+        stageTitle: 'Generation & Audit',
       },
       {
         type: 'thinking',
         delayBefore: 200,
-        thinkingLabel: 'Assembling final compliance package with full audit trail...',
-        thinkingDuration: 1000,
-        capacity: 'low',
+        thinkingLabel: 'Composing grounded answer with inline citations from retrieved chunks...',
+        thinkingDuration: 2000,
+        capacity: 'medium',
+      },
+      {
+        type: 'prose',
+        delayBefore: 400,
+        text: 'China real estate exposure is capped at 15% of NAV per the 2026 risk policy (chunk 037). Aladdin shows a current position of HKD 34.2M — 11.8% of NAV (chunk 102) — leaving HKD 9.3M of headroom. Figures cross-checked against the compliance SOP (chunk 118). No policy breach.',
+      },
+      {
+        type: 'tools',
+        delayBefore: 300,
+        tools: [
+          { brandId: 'teams', name: 'MS Teams', action: 'Posting citation log to #compliance-alerts' },
+        ],
       },
       {
         type: 'subtasks',
         delayBefore: 300,
         subtasks: [
-          'generating SHA-256 audit proof → 9f86d081884c7d659a2feaa0c55ad015',
-          'dispatching reconciliation report to compliance workspace',
-        ],
-      },
-      {
-        type: 'output',
-        delayBefore: 800,
-        output: [
-          { label: 'Overall Risk Score', value: '12 / 100 (Low)' },
-          { label: 'Sanctions Matches', value: '0' },
-          { label: 'ID Verification', value: 'Passed' },
-          { label: 'Transactions Matched', value: '47 / 48 (97.9%)' },
-          { label: 'Anomalies Flagged', value: '1 (HKD 82,300)' },
-          { label: 'Recommendation', value: 'Conditional Approval' },
+          'generating SHA-256 audit proof → 5c1b9e8f2a4d...',
+          'citation log appended — 3 sources, 5 chunks, 0 ungrounded claims',
+          '[ZDR Gateway] Embedding buffer + index wiped. 0 bytes persisted to disk.',
         ],
       },
       {
         type: 'prose',
         delayBefore: 600,
-        text: 'Pipeline complete. 1 item awaiting human review. Estimated manual time saved: 36 minutes.',
+        text: 'Pipeline complete. Answer grounded in 5 verified chunks. Estimated manual time saved: 25 minutes.',
       },
     ],
-    completionMetric: 'Estimated manual time saved: 36 mins',
+    completionMetric: 'Answer grounded in 5 verified chunks',
   },
 ]
 

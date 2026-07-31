@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useCallback } from 'react'
 import { Expand } from 'lucide-react'
+import { siteConfig } from '@/config/siteConfig'
 
 export default function VideoSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -15,7 +16,6 @@ export default function VideoSection() {
     }
   }, [])
 
-  // Auto-play on scroll
   useEffect(() => {
     const el = sectionRef.current
     const video = videoRef.current
@@ -40,32 +40,30 @@ export default function VideoSection() {
     <section ref={sectionRef} className="section">
       <div className="container-site">
         <div className="max-w-xl mb-10">
-          <p className="section-eyebrow mb-3">See It in Action</p>
+          <p className="section-eyebrow mb-3">{siteConfig.video.eyebrow}</p>
           <h2 className="font-serif text-[clamp(1.4rem,3.8vw,2rem)] tracking-[-0.01em] text-jsc-ink mb-3">
-            33-Second Live Pipeline Execution
+            {siteConfig.video.heading}
           </h2>
           <p className="text-jsc-muted text-[0.88rem] leading-relaxed">
-            Watch the pipeline ingest data, verify identities, reconcile records, and dispatch audit results. Fully automated.
+            {siteConfig.video.subtext}
           </p>
         </div>
 
-        <div className="video-app-frame mx-auto" style={{ maxWidth: 'min(100%, calc(55vh * 2530 / 1856))' }}>
+        <div className="video-app-frame mx-auto" style={{ maxWidth: 'min(100%, calc(65vh * 2530 / 1856))' }}>
           <div className="relative bg-[#161718]">
             <video
               ref={videoRef}
-              src="/workflow-3-video.mp4"
+              src={siteConfig.video.videoSrc}
               muted
               playsInline
               loop
               className="w-full h-auto block"
-              aria-label="Pipeline workflow demo video"
+              aria-label={siteConfig.video.videoAriaLabel}
             />
-
-            {/* Fullscreen button — bottom-right overlay */}
             <button
               onClick={handleFullscreen}
               className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors duration-200 cursor-pointer"
-              aria-label="Expand full screen"
+              aria-label={siteConfig.video.fullscreenAriaLabel}
             >
               <Expand size={14} className="text-white/70" />
             </button>

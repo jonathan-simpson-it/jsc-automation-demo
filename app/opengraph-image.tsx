@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og'
+import { siteConfig } from '@/config/siteConfig'
 
-export const alt = 'JS&C Automation — Compliant Agentic AI for HK Finance'
+export const alt = siteConfig.seo.ogImage.alt
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -28,7 +29,7 @@ export default function Image() {
             marginBottom: 16,
           }}
         >
-          2026 Strategic Briefing · Live Demo
+          {siteConfig.seo.ogImage.eyebrow}
         </div>
         <div
           style={{
@@ -39,7 +40,7 @@ export default function Image() {
             marginBottom: 16,
           }}
         >
-          JS&C Automation
+          {siteConfig.seo.ogImage.title}
         </div>
         <div
           style={{
@@ -53,8 +54,8 @@ export default function Image() {
             alignItems: 'center',
           }}
         >
-          <span>Zero-Data-Retention Agentic AI pipelines for</span>
-          <span>SFC-licensed financial SMEs in Hong Kong</span>
+          <span>{siteConfig.seo.ogImage.subtitle1}</span>
+          <span>{siteConfig.seo.ogImage.subtitle2}</span>
         </div>
         <div
           style={{
@@ -66,7 +67,7 @@ export default function Image() {
             color: '#5c5e56',
           }}
         >
-          <span>jonathansimpson.co</span>
+          <span>{siteConfig.seo.ogImage.domain}</span>
           <span
             style={{
               width: 1,
@@ -74,7 +75,7 @@ export default function Image() {
               background: '#d6d8d1',
             }}
           />
-          <span>SFC · HKMA · PCPD Compliant</span>
+          <span>{siteConfig.seo.ogImage.badge}</span>
         </div>
       </div>
     ),

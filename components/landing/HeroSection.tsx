@@ -1,4 +1,5 @@
 import PipelineDiagram from './PipelineDiagram'
+import { siteConfig } from '@/config/siteConfig'
 
 export default function HeroSection() {
   return (
@@ -7,36 +8,41 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div>
             <p className="section-eyebrow mb-4">
-              2026 Strategic Briefing &amp; Live Demo
+              {siteConfig.hero.eyebrow}
             </p>
-            <h1 className="font-serif text-[clamp(2.4rem,7vw,4.8rem)] leading-[1.1] tracking-[-0.01em] text-jsc-ink mb-5">
-              Automating the Hub:
-              <br />
-              Compliant Agentic AI
-              <br />
-              for HK Finance
+            <h1 className="font-serif text-[clamp(2.2rem,6.4vw,4.3rem)] leading-[1.1] tracking-[-0.01em] text-jsc-ink mb-5">
+              {siteConfig.hero.headline.map((line, i) => (
+                <span key={i} className="block">
+                  {i === siteConfig.hero.headlineEmphasisIndex ? (
+                    <em className="hero-em font-serif not-italic">
+                      {line}
+                    </em>
+                  ) : (
+                    line
+                  )}
+                </span>
+              ))}
             </h1>
             <p className="text-[clamp(0.88rem,1.8vw,1rem)] text-jsc-muted max-w-[34rem] leading-relaxed mb-6">
-              <strong className="text-jsc-ink font-medium">70% operational cost reduction</strong>{' '}
-              using Zero-Data-Retention multi-agent pipelines built for SFC-licensed
-              SMEs — with full PCPD, SFC, and HKMA compliance from day one.
+              <strong className="text-jsc-ink font-medium">{siteConfig.hero.boldIntro}</strong>{' '}
+              {siteConfig.hero.subtext}
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="/demo" className="btn-primary">
-                Watch the Pipelines Run
+                {siteConfig.hero.primaryCta}
               </a>
               <a
-                href="https://jonathansimpson.co/#contact"
+                href={siteConfig.primaryCta.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-ghost"
               >
-                Book a Consultation
+                {siteConfig.hero.secondaryCta}
               </a>
             </div>
 
             <div className="flex flex-wrap gap-1.5 mt-3 lg:mt-4">
-              {['3-Year No-Junior-Hire Guarantee', '100% PCPD & SFC Compliant', '24/7/365 Automated'].map((b) => (
+              {siteConfig.hero.badges.map((b) => (
                 <span
                   key={b}
                   className="text-[0.55rem] lg:text-[0.62rem] text-jsc-muted bg-jsc-accent-soft/40 border border-jsc-line/40 rounded-full px-2 lg:px-3 py-0.5 lg:py-1 font-mono uppercase tracking-[0.06em]"

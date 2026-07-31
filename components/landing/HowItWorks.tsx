@@ -3,38 +3,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ShieldCheck } from 'lucide-react'
+import { siteConfig } from '@/config/siteConfig'
 
-const stages = [
-  {
-    id: 1,
-    label: 'Secure Ingest & Mask',
-    sub: 'PII Redacted',
-    tech: 'Local regex engine strips client PII (HKID, Name, Account #) before any payload leaves the perimeter.',
-    benefit: 'Eliminates PCPD risk — prevents accidental data exposure to public LLMs.',
-  },
-  {
-    id: 2,
-    label: 'Ephemeral RAM Execution',
-    sub: 'HK Virtual Node',
-    tech: 'Payload processes inside encrypted, volatile RAM buffers on local HK/SG virtual nodes.',
-    benefit: 'Zero data retention — data exists in memory only during execution and leaves 0 footprint.',
-  },
-  {
-    id: 3,
-    label: 'AI-vs-AI Governance',
-    sub: 'SFC Rule Verified',
-    tech: 'Multi-agent validation checks outputs against SFC Circular rules and custom tolerance thresholds.',
-    benefit: 'Audit-ready accuracy — prevents AI hallucinations from reaching client-facing reports.',
-  },
-  {
-    id: 4,
-    label: 'Audit Dispatch',
-    sub: 'SHA-256 Proof',
-    tech: 'Clean report written back to Xero/Slack; RAM wiped; cryptographic proof logged.',
-    benefit: 'Automated compliance proof — provides verifiable proof for internal and SFC regulators.',
-  },
-]
-
+const stages = siteConfig.howItWorks.stages
 const STAGE_DURATION = 7000
 const CYCLE_DURATION = STAGE_DURATION * 4
 
@@ -63,7 +34,6 @@ export default function HowItWorks() {
   useEffect(() => {
     const el = sectionRef.current
     if (!el) return
-    // Already in view on load?
     if (el.getBoundingClientRect().top < window.innerHeight) {
       setIsVisible(true)
       return
@@ -88,7 +58,6 @@ export default function HowItWorks() {
 
     const tick = (now: number) => {
       if (!t0Ref.current) {
-        // Apply seek offset on first tick if set
         if (seekRef.current !== null) {
           t0Ref.current = now - seekRef.current
           seekRef.current = null
@@ -134,25 +103,19 @@ export default function HowItWorks() {
     setActive(id)
     setInterp(0)
     setPaused(false)
-    // Restart the rAF immediately regardless of paused state
     if (frameRef.current) cancelAnimationFrame(frameRef.current)
     frameRef.current = 0
     startFrame()
   }
 
   const handleMouseEnter = () => {
-    if (!reduced) {
-      setPaused(true)
-    }
+    if (!reduced) setPaused(true)
   }
 
   const handleMouseLeave = () => {
-    if (!reduced) {
-      setPaused(false)
-    }
+    if (!reduced) setPaused(false)
   }
 
-  // Progress from 0%-75%, where 0 = left edge of node 1, 75 = left edge of node 4
   const linePct = Math.min(((active - 1) + interp) / 3 * 75, 75)
 
   return (
@@ -165,28 +128,22 @@ export default function HowItWorks() {
     >
       <div className="container-site">
         <div className="max-w-xl mb-12">
-          <p className="section-eyebrow mb-3">The Pipeline Architecture</p>
+          <p className="section-eyebrow mb-3">{siteConfig.howItWorks.eyebrow}</p>
           <h2 className="font-serif text-[clamp(1.4rem,3.8vw,2rem)] tracking-[-0.01em] text-jsc-ink mb-3">
-            Zero-Data-Retention in Four Steps
+            {siteConfig.howItWorks.heading}
           </h2>
           <p className="text-jsc-muted text-[0.88rem] leading-relaxed">
-            Every pipeline follows the same architecture: ephemeral processing in
-            a cryptographic sandbox with strict Human-in-the-Loop validation
-            before any output reaches your approved systems.
+            {siteConfig.howItWorks.subtext}
           </p>
         </div>
 
-        {/* Stepper */}
         <div className="relative mb-8">
-          {/* Progress line — hidden on mobile */}
           {!reduced && (
             <div className="absolute inset-x-0 top-[19px] h-[3px] pointer-events-none hidden md:block" style={{ zIndex: 0 }}>
-              {/* Background — fixed 75% span */}
               <div
                 className="absolute h-full"
                 style={{ left: '12.5%', width: '75%', background: 'var(--color-jsc-line)', opacity: 0.5 }}
               />
-              {/* Progress fill — left-to-right */}
               <div
                 className="absolute h-full"
                 style={{
@@ -198,7 +155,6 @@ export default function HowItWorks() {
             </div>
           )}
 
-          {/* Nodes row */}
           <div className="grid grid-cols-4 gap-2 relative" style={{ zIndex: 1 }}>
             {stages.map((stage) => {
               const isPassed = stage.id < active
@@ -290,7 +246,6 @@ export default function HowItWorks() {
             })}
           </div>
 
-          {/* Particle traveler — z-index 0 (behind nodes) */}
           {!reduced && (
             <motion.div
               className="absolute top-0 pointer-events-none hidden md:block"
@@ -312,7 +267,6 @@ export default function HowItWorks() {
           )}
         </div>
 
-        {/* Morphing detail card */}
         <div className="panel-card p-6" style={{ overflow: 'hidden' }}>
           <AnimatePresence mode="wait">
             <motion.div
@@ -324,14 +278,14 @@ export default function HowItWorks() {
             >
               <div className="flex items-center gap-2 mb-3">
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.1em] text-jsc-accent">
-                  Stage {String(active).padStart(2, '0')}
+                  {siteConfig.howItWorks.cardLabels.stagePrefix} {String(active).padStart(2, '0')}
                 </span>
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.1em] text-jsc-muted">
                   — {stages[active - 1].label}
                 </span>
                 {paused && (
                   <span className="font-mono text-[0.55rem] uppercase tracking-[0.08em] text-jsc-accent ml-auto">
-                    [ Paused ]
+                    {siteConfig.howItWorks.cardLabels.paused}
                   </span>
                 )}
               </div>
@@ -339,7 +293,7 @@ export default function HowItWorks() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <span className="text-[0.65rem] font-mono uppercase tracking-[0.08em] text-jsc-muted mb-1 block">
-                    What happens under the hood
+                    {siteConfig.howItWorks.cardLabels.underHood}
                   </span>
                   <p className="text-[0.85rem] text-jsc-ink leading-relaxed">
                     {stages[active - 1].tech}
@@ -348,7 +302,7 @@ export default function HowItWorks() {
                 <div>
                   <span className="text-[0.65rem] font-mono uppercase tracking-[0.08em] text-jsc-muted mb-1 block flex items-center gap-1.5">
                     <ShieldCheck size={12} className="text-jsc-accent" />
-                    Why it matters
+                    {siteConfig.howItWorks.cardLabels.whyMatters}
                   </span>
                   <p className="text-[0.85rem] text-jsc-ink leading-relaxed">
                     {stages[active - 1].benefit}
@@ -361,7 +315,7 @@ export default function HowItWorks() {
 
         <div className="mt-8">
           <a href="/demo" className="btn-ghost">
-            Run the Full Interactive Demo →
+            {siteConfig.howItWorks.ctaButton}
           </a>
         </div>
       </div>

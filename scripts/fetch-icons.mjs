@@ -29,6 +29,8 @@ async function main() {
   // These are confirmed to exist in the current simple-icons npm export
   const siNames = [
     'Whatsapp', 'Xero', 'Notion', 'Hsbc', 'Google', 'Gmail', 'Googledrive',
+    'Bloomberg', 'Factset', 'Confluence', 'Quickbooks', 'Netsuite', 'Onedrive',
+    'Googledocs', 'Googlecalendar',
   ]
 
   for (const name of siNames) {
@@ -58,7 +60,7 @@ async function main() {
   }
 
   console.log(`\n📡 Stage 2: Fetching from simple-icons CDN (trademark-restricted icons)...`)
-  const cdnSlugs = ['slack', 'microsoftteams', 'microsoftoutlook', 'microsoft']
+  const cdnSlugs = ['slack', 'microsoftteams', 'microsoftoutlook', 'microsoft', 'microsoftsharepoint', 'microsoftonedrive']
 
   for (const slug of cdnSlugs) {
     const url = `https://cdn.simpleicons.org/${slug}`

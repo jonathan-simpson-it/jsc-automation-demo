@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import type { Workflow } from '@/lib/workflow-data'
+import { siteConfig } from '@/config/siteConfig'
 
 interface Props {
   workflows: Workflow[]
@@ -21,7 +22,7 @@ export default function TopBar({ workflows, activeIndex, onSelect, disabled }: P
         >
           <ArrowLeft size={16} />
           <span className="font-sans text-[0.72rem] tracking-[0.04em] uppercase font-medium">
-            JS&amp;C
+            {siteConfig.demo.backLabel}
           </span>
         </Link>
 

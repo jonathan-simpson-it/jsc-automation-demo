@@ -4,22 +4,24 @@ interface BrandDef {
   name: string
   hex: string
   multiColor?: boolean
+  bg?: string
   component: (props: SVGProps<SVGSVGElement>) => ReactElement
 }
 
-function p(path: string, color: string, viewBox = '0 0 24 24'): BrandDef {
+function p(name: string, path: string, color: string, viewBox = '0 0 24 24'): BrandDef {
   const C = (props: SVGProps<SVGSVGElement>) => (
-    <svg viewBox={viewBox} fill={color} {...props}><path d={path} /></svg>
+    <svg viewBox={viewBox} fill="currentColor" {...props}><path d={path} /></svg>
   )
   C.displayName = 'BrandIcon'
-  return { name: 'Brand', hex: color, component: C }
+  return { name, hex: color, component: C }
 }
 
-function makeImgBrand(name: string, path: string, color: string): BrandDef {
+function makeImgBrand(name: string, path: string, color: string, bg?: string): BrandDef {
   return {
     name,
     hex: color,
     multiColor: true,
+    ...(bg ? { bg } : {}),
     component: (p: SVGProps<SVGSVGElement>) => (
       <img src={path} alt={name} width={p.width as string} height={p.height as string} style={{ objectFit: 'contain' }} />
     ),
@@ -27,20 +29,7 @@ function makeImgBrand(name: string, path: string, color: string): BrandDef {
 }
 
 const all: Record<string, BrandDef> = {
-  whatsapp: {
-    name: 'WhatsApp', hex: '#25D366', multiColor: true,
-    component: (p) => <svg viewBox="0 0 256 258" {...p}>
-      <defs>
-        <linearGradient id="wa-bg" x1="50%" y1="100%" x2="50%" y2="0%">
-          <stop stopColor="#1FAF38" offset="0%"/>
-          <stop stopColor="#60D669" offset="100%"/>
-        </linearGradient>
-      </defs>
-      <path d="M5.46 127.46c-.01 21.68 5.66 42.84 16.43 61.5L4.43 252.7l65.23-17.1a118 118 0 0 0 58.8 14.97h.05c67.82 0 123.02-55.18 123.05-123.03.01-32.87-12.8-63.77-36.03-87.03A122.9 122.9 0 0 0 128.51 4.45C60.69 4.45 5.49 59.63 5.46 127.46" fill="url(#wa-bg)"/>
-      <path d="M41.3 187.8l-2.52-4.01c-10.6-16.86-16.2-36.35-16.2-56.36.03-58.4 47.55-105.9 105.99-105.9a105.6 105.6 0 0 1 74.9 31.06 105.8 105.8 0 0 1 31 74.93c-.02 58.4-47.55 105.9-105.94 105.9h-.04a105 105 0 0 1-53.92-15l-3.87-2.3-40.1 10.52 10.7-38.84z" fill="#fff"/>
-      <path d="M96.68 74.15c-2.39-5.3-4.9-5.41-7.17-5.5-1.86-.07-3.98-.07-6.1-.07s-3.58.8-5.15 2.98c-2.92 3.19-10.14 10.9-10.14 26.56 0 15.67 11.41 30.81 13 32.94 1.6 2.12 22.04 35.3 54.41 48.07 26.9 10.61 32.38 8.5 38.22 7.97 5.84-.53 18.84-7.7 21.5-15.14 2.65-7.44 2.65-13.82 1.85-15.15-.8-1.32-2.92-2.13-6.1-3.72-3.19-1.59-18.85-9.3-21.77-10.36-2.92-1.06-5.04-1.59-7.16 2.63-2.13 4.21-8.23 13.36-10.09 15.48-1.86 2.13-3.72 2.38-6.9.8-3.19-1.6-13.45-4.96-25.62-15.81-9.47-8.44-15.86-18.87-17.72-22.06-1.86-3.18-.38-5.76.22-7.35" fill="#fff"/>
-    </svg>,
-  },
+  whatsapp: makeImgBrand('WhatsApp', '/icons/whatsapp-color.svg', '#25D366', '#25D366'),
   xero: {
     name: 'Xero', hex: '#13B5EA', multiColor: true,
     component: (p) => <svg viewBox="0 0 256 256" {...p}>
@@ -48,12 +37,9 @@ const all: Record<string, BrandDef> = {
       <path d="M62.37 127.97l21.8-21.9a3.9 3.9 0 0 0 1.12-2.74c0-2.16-1.75-3.92-3.9-3.92a3.9 3.9 0 0 0-2.78 1.17l-21.8 21.8-21.86-21.84a3.9 3.9 0 0 0-2.76-1.13c-2.16 0-3.9 1.75-3.9 3.9 0 1.06.42 2.05 1.17 2.8l21.8 21.81-21.8 21.84a3.9 3.9 0 0 0-1.17 2.8c0 2.16 1.75 3.92 3.9 3.92 1.05 0 2.03-.4 2.77-1.14l21.84-21.86 21.76 21.77a3.9 3.9 0 0 0 2.84 1.22c2.15 0 3.9-1.75 3.9-3.92a3.9 3.9 0 0 0-1.24-2.76l-21.79-21.8zm129.6 0c0 3.92 3.18 7.1 7.1 7.1a7.1 7.1 0 1 0 0-14.2 7.1 7.1 0 0 0-7.1 7.1m-13.46 0c0-11.35 9.22-20.6 20.56-20.6 11.32 0 20.55 9.24 20.55 20.6 0 11.34-9.23 20.6-20.55 20.6-11.34 0-20.56-9.24-20.56-20.6m-8.09 0c0 15.82 12.86 28.7 28.65 28.7 15.79 0 28.65-12.87 28.65-28.7 0-15.8-12.86-28.7-28.65-28.7-15.8 0-28.65 12.88-28.65 28.7m-2.03-28.2h-1.2c-3.61 0-7.1 1.14-10 3.38a3.9 3.9 0 0 0-3.84-3.07c-2.15 0-3.87 1.74-3.87 3.9v48.32c0 2.14 1.76 3.89 3.9 3.89 2.16 0 3.9-1.75 3.9-3.9v-29.73c0-9.9.91-13.9 9.38-14.96.8-.1 1.64-.08 1.65-.08 2.3-.08 3.96-1.68 3.96-3.84a3.9 3.9 0 0 0-3.92-3.9h.02zm-75.02 23.48v-.33c2.27-8.99 10.39-15.63 20.06-15.63 9.78 0 17.97 6.8 20.13 15.94h-40.2zm48.2-.74c-1.68-8-6.05-14.55-12.69-18.76-9.71-6.18-22.54-5.84-31.91.9-7.66 5.44-12.08 14.36-12.08 23.55q0 3.46.85 6.93c2.9 11.38 12.67 20 24.32 21.43 3.46.42 6.83.23 10.3-.68 3-.74 5.9-1.95 8.56-3.67 2.77-1.78 5.09-4.13 7.35-6.95l.12-.16c1.56-1.93 1.27-4.7-.44-6a4 4 0 0 0-3.77-.98c-1.9.6-3.9 1.15-4.86 2.85a9 9 0 0 1-1.36 1.8c-1.64 1.67-3.52 3.3-5.77 4.56-2.88 1.53-6.15 2.4-9.62 2.43-11.36-.13-17.44-8.08-19.6-13.74a13 13 0 0 1-.86-3.3h40.8c5.58-.13 8.58-4.08 7.75-8.59z" fill="#fff"/>
     </svg>,
   },
-  notion: {
-    name: 'Notion', hex: '#000000',
-    component: (p) => <svg viewBox="0 0 512 512" fill="currentColor" {...p}>
-      <path d="M307.3 66.8 96.8 82.3C80.1 83.8 74 94.8 74 108.1v230.7c0 10.3 3.8 19.4 12.5 31.2l49.4 64.2c8 10.3 15.6 12.5 31.2 11.8l244.3-14.8c20.5-1.5 26.6-11 26.6-27.4V144.3c0-8.4-3.4-10.6-12.9-17.9L356 77.8c-16.4-11.8-23.2-13.3-48.7-11m-134.9 73.3c-19.8 1.5-24.3 1.5-35.7-7.6l-28.9-22.8c-3-3-1.5-6.8 6.1-7.2l202.2-14.8c17.1-1.5 25.8 4.6 32.3 9.5l34.6 25.1c1.5.8 5.3 5.3.8 5.3l-208.6 12.5h-2.7zm-23.2 261.4v-220c0-9.5 3-14.1 11.8-14.8l239.8-14.1c8-.8 11.8 4.6 11.8 14.1v218.5c0 9.5-1.5 17.9-14.8 18.6l-229.5 13.3c-13.3.8-19-3.8-19-15.6zm226.5-208.2c1.5 6.8 0 13.3-6.8 14.1l-11 2.3v162.6c-9.5 5.3-18.6 8-25.8 8-11.8 0-14.8-3.8-23.6-14.8l-72.2-113.6v109.8l22.8 5.3s0 13.3-18.6 13.3l-50.9 3c-1.5-3 0-10.3 5.3-11.8l13.3-3.8V222.2l-18.6-1.5c-1.5-6.8 2.3-16.3 12.5-17.1l54.7-3.8L332 314.9V213.1l-19-2.3c-1.5-8 4.6-14.1 11.8-14.8l50.9-3z"/>
-    </svg>,
-  },
+  notion: makeImgBrand('Notion', '/icons/Notion-logo-black.svg', '#000000', '#ffffff'),
+  excel: makeImgBrand('Excel', '/icons/Microsoft Office Excel 2025.svg', '#217346'),
+  googlesheets: makeImgBrand('Google Sheets', '/icons/Google Sheets Icon.svg', '#009954', '#009954'),
   hsbc: {
     name: 'HSBC', hex: '#DB0011', multiColor: true,
     component: (p) => <svg viewBox="0 0 64 64" {...p}>
@@ -146,52 +132,21 @@ const all: Record<string, BrandDef> = {
       <path fill="#E60026" d="M50.514 18.496l-1.15.96 1.213 3.968-3.64-1.985-1.213.96 4.023 2.177-4.277 3.455-1.15-1.536 1.532-1.215-1.15-1.345-1.532 1.217-1.15-1.472 1.532-1.217-1.15-1.472-7.853 6.53 7.47 6.016 1.34-1.664c.958.064 1.66.768 2.043 1.664l-1.34 1.664.83.64c1.85-1.664 4.278-2.75 6.767-2.75 5.235 0 9.32 4.287 9.32 9.535 0 1.728-.447 3.585-1.404 5.12l1.404 1.087c-.064 1.024-1.02 2.112-1.98 2.368l-1.34-1.09a9.75 9.75 0 0 1-6.83 2.753c-5.235 0-9.32-4.16-9.32-9.47 0-1.728.51-3.52 1.277-4.993l-.766-.705-1.34 1.792c-.958-.127-1.788-.77-2.042-1.792l1.34-1.6-6.32-5.248v8.32l2.107.064a2.07 2.07 0 0 1 .447 1.281c0 .447-.192.96-.384 1.344h-2.17v1.024c4.597.768 8.427 4.672 8.427 9.407 0 4.928-3.767 8.834-8.427 9.6v1.666c-.447.254-1.02.447-1.532.447-.575 0-1.213-.194-1.724-.447v-1.666c-4.66-.767-8.3-4.672-8.3-9.6 0-4.735 3.64-8.64 8.3-9.343v-1.09h-2.17c-.256-.383-.384-.896-.384-1.344 0-.51.128-.96.384-1.345h2.17v-8.32l-6.384 5.248 1.405 1.6a2.53 2.53 0 0 1-2.107 1.792l-1.34-1.792-.83.705c.894 1.472 1.34 3.264 1.34 4.993 0 5.312-4.085 9.47-9.32 9.47-2.5 0-4.98-.96-6.767-2.753L4.996 51.2c-.894-.256-1.85-1.344-1.98-2.368l1.34-1.087c-.83-1.536-1.34-3.393-1.34-5.12 0-5.248 4.085-9.535 9.32-9.535 2.553 0 4.98 1.087 6.83 2.75l.767-.577-1.34-1.727c.32-.896 1.15-1.536 2.107-1.664l1.34 1.664 7.47-6.016-7.853-6.53-1.15 1.472 1.532 1.217-1.15 1.472-1.532-1.217-1.15 1.345 1.468 1.215-1.15 1.536-4.214-3.455 3.958-2.177-1.15-.96-3.64 1.985 1.213-3.968-1.15-.96-1.34 4.353-4.277-3.457 1.15-1.408 1.47 1.217 1.213-1.408-1.533-1.345 1.15-1.345 1.532 1.154 1.085-1.345-3.32-2.623c.32-1.1 1.022-1.985 2.043-2.626L30.404 24.13v-9.666h-1.787v1.857H26.83v-1.857h-1.852v1.857h-1.85v-5.44l4.213 1.79v-1.536l-3.894-1.6L27.34 8V6.53l-4.213 1.664V2.69h1.85v1.983h1.852V2.69h1.788v1.983h1.787V.32C30.915.128 31.5 0 32.064 0c.51 0 1.085.128 1.596.32v23.81L51.344 9.663a5.2 5.2 0 0 1 2.043 2.626l-3.383 2.623 1.15 1.345 1.532-1.154 1.15 1.345-1.532 1.345 1.15 1.408 1.533-1.217 1.15 1.408-4.277 3.457zM14.38 44.67c0 1.537 1.15 2.496 2.5 2.625l-2.234 1.728c-1.532-.577-2.937-2.432-2.937-4.032 0-.51.128-.832.255-1.215-.19 0-.32.064-.447.064-2.042 0-3.767-1.92-4.15-3.904l2.298-1.792c-.064.257-.064.447-.064.64 0 1.28 1.213 2.432 2.5 2.432 1.34 0 2.617-1.153 2.617-2.498 0-1.66-1.277-2.75-2.873-2.75-3.128 0-6.193 3.008-6.193 6.976 0 1.15.255 2.24.766 3.2l1.405-1.087c.957.447 1.724 1.408 1.98 2.496L8.38 48.64c1.34 1.153 3 1.664 4.724 1.664 3.575 0 6.448-2.88 6.448-5.44 0-1.47-1.022-2.75-2.554-2.75-1.405 0-2.618 1.087-2.618 2.56zm18.96 5.506c0 1.406 1.15 2.56 2.5 2.56.958 0 1.34-.383 2.043-.96v2.88c-.703.383-1.405.576-2.17.576-1.532 0-2.81-.45-3.64-1.792-.894 1.344-2.17 1.792-3.703 1.792-.702 0-1.468-.192-2.17-.576v-2.88c.638.64 1.15.96 2.043.96 1.405 0 2.5-1.153 2.5-2.56 0-1.345-.894-2.56-2.363-2.56-2.617 0-3.702 2.495-3.702 4.8a7 7 0 0 0 5.745 6.849v-1.728c.51-.256 1.086-.32 1.596-.32.574 0 1.15.064 1.66.32v1.728c3-.45 5.746-3.65 5.746-6.85 0-2.368-.958-4.8-3.703-4.8-1.404 0-2.362 1.215-2.362 2.56zm15.896-11.458c0 1.282 1.34 2.498 2.68 2.498 1.276 0 2.5-1.153 2.5-2.432 0-.192-.064-.383-.064-.64l2.235 1.792c-.384 2.176-2.298 4.095-4.533 3.84.128.383.19.704.19 1.215 0 1.6-1.405 3.455-2.936 4.032l-2.235-1.728c1.405-.128 2.554-1.087 2.554-2.625 0-1.472-1.277-2.56-2.68-2.56-1.468 0-2.553 1.28-2.553 2.815 0 1.857 2.234 5.376 6.512 5.376 1.724 0 3.383-.512 4.66-1.664l-1.405-1.087c.32-1.09.957-2.05 1.98-2.496l1.405 1.087c.51-.96.83-2.047.83-3.2 0-3.072-2.363-6.976-6.13-6.976-1.596 0-3 1.09-3 2.75z"/>
     </svg>,
   },
-  blackrock: makeImgBrand('BlackRock', '/icons/blackrock.png', '#000000'),
-  juliusbaer: makeImgBrand('Julius Baer', '/icons/juliusbaer.png', '#00509E'),
-  lgt: makeImgBrand('LGT', '/icons/lgt.png', '#002F6C'),
-  granola: makeImgBrand('Granola', '/icons/granola.png', '#3ECF8E'),
-  custodian: {
-    name: 'Custodian Portals', hex: '#ffffff',
-    multiColor: true,
-    component: (p) => (
-      <svg viewBox="0 0 36 36" width={p.width} height={p.height} style={{ display: 'block' }}>
-        <rect width={36} height={36} rx={6} fill="#e3e9e6" />
-        {/* HSBC — red hex mark top-left */}
-        <path d="M3 3h15v15H3z" fill="#DB0011" />
-        <path d="M5 5l5.5 5.5V5zm3 0v11L5 11zm8 5l-5.5 5.5h11zm-2 0l-5.5-5.5h11z" fill="#fff" />
-        {/* UBS — red circle top-right */}
-        <circle cx={27} cy={10.5} r={6} fill="#E60026" />
-        <text x={27} y={12.5} textAnchor="middle" fill="#fff" fontSize={7} fontWeight="bold" fontFamily="system-ui">UB</text>
-        {/* LGT — dark blue bottom-left */}
-        <rect x={3} y={21} width={15} height={12} rx={2} fill="#002F6C" />
-        <text x={10.5} y={29.5} textAnchor="middle" fill="#fff" fontSize={6} fontWeight="bold" fontFamily="system-ui">LGT</text>
-        {/* Julius Baer — blue bottom-right */}
-        <rect x={18} y={21} width={15} height={12} rx={2} fill="#00509E" />
-        <text x={25.5} y={29.5} textAnchor="middle" fill="#fff" fontSize={5} fontWeight="bold" fontFamily="system-ui">JB</text>
-      </svg>
-    ),
-  },
-  omnichannel: {
-    name: 'Omnichannel Comms Gateways', hex: '#ffffff',
-    multiColor: true,
-    component: (p) => (
-      <svg viewBox="0 0 36 36" width={p.width} height={p.height} style={{ display: 'block' }}>
-        <rect width={36} height={36} rx={6} fill="#e3e9e6" />
-        {/* Teams — purple square */}
-        <rect x={2} y={2} width={15} height={15} rx={3} fill="#6264A7" />
-        <text x={9.5} y={13} textAnchor="middle" fill="#fff" fontSize={7} fontWeight="bold" fontFamily="system-ui">T</text>
-        {/* Slack — multicolor */}
-        <rect x={19} y={2} width={15} height={15} rx={3} fill="#E01E5A" />
-        <text x={26.5} y={13} textAnchor="middle" fill="#fff" fontSize={6} fontWeight="bold" fontFamily="system-ui">S</text>
-        {/* WhatsApp — green */}
-        <rect x={2} y={19} width={15} height={15} rx={3} fill="#25D366" />
-        <text x={9.5} y={30} textAnchor="middle" fill="#fff" fontSize={5} fontWeight="bold" fontFamily="system-ui">WA</text>
-        {/* Chat bubble icon bottom-right */}
-        <rect x={19} y={19} width={15} height={15} rx={3} fill="#80988f" />
-        <text x={26.5} y={30} textAnchor="middle" fill="#fff" fontSize={7} fontWeight="bold" fontFamily="system-ui">+</text>
-      </svg>
-    ),
-  },
+  blackrock: makeImgBrand('BlackRock', '/icons/blackrock.png', '#000000', '#000000'),
+  juliusbaer: makeImgBrand('Julius Baer', '/icons/juliusbaer.png', '#00509E', '#141D54'),
+  lgt: makeImgBrand('LGT', '/icons/lgt.png', '#002F6C', '#273B82'),
+  granola: makeImgBrand('Granola', '/icons/granola.png', '#3ECF8E', '#B2C248'),
+  bloomberg: makeImgBrand('Bloomberg', '/icons/bloomberg.svg', '#010101', '#010101'),
+  factset: makeImgBrand('FactSet', '/icons/factset.png', '#00AEEF'),
+  netsuite: makeImgBrand('NetSuite', '/icons/netsuite.svg', '#125580'),
+  fireflies: makeImgBrand('Fireflies.ai', '/icons/fireflies.svg', '#9B4AB0'),
+  otter: makeImgBrand('Otter.ai', '/icons/otter.svg', '#144FFF'),
+  confluence: makeImgBrand('Confluence', '/icons/confluence-color.svg', '#0052CC'),
+  quickbooks: p('QuickBooks', 'M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm.642 4.1335c.9554 0 1.7296.776 1.7296 1.7332v9.0667h1.6c1.614 0 2.9275-1.3156 2.9275-2.933 0-1.6173-1.3136-2.9333-2.9276-2.9333h-.6654V7.3334h.6654c2.5722 0 4.6577 2.0897 4.6577 4.667 0 2.5774-2.0855 4.6666-4.6577 4.6666H12.642zM7.9837 7.333h3.3291v12.533c-.9555 0-1.73-.7759-1.73-1.7332V9.0662H7.9837c-1.6146 0-2.9277 1.316-2.9277 2.9334 0 1.6175 1.3131 2.9333 2.9277 2.9333h.6654v1.7332h-.6654c-2.5725 0-4.6577-2.0892-4.6577-4.6665 0-2.5771 2.0852-4.6666 4.6577-4.6666Z', '#2CA01C'),
+  googledocs: makeImgBrand('Google Docs', '/icons/googledocs-color.svg', '#4285F4'),
+  googlecalendar: makeImgBrand('Google Calendar', '/icons/googlecalendar-color.svg', '#4285F4'),
+  onedrive: makeImgBrand('OneDrive', '/icons/onedrive-color.svg', '#0078D4'),
+  sharepoint: makeImgBrand('SharePoint', '/icons/sharepoint.svg', '#0078D4'),
   connector: {
     name: 'Custom Connector', hex: '#80988f',
     component: (p) => <svg viewBox="0 0 24 24" {...p}>

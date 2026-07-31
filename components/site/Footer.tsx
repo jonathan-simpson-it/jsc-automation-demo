@@ -2,14 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { siteConfig } from '@/lib/siteConfig'
-
-const readLinks = [
-  { label: 'Demo', href: '/demo' },
-  { label: 'Connectors', href: '/#connectors' },
-  { label: 'Pricing', href: '/#pricing' },
-  { label: 'Blog', href: '/blog' },
-]
+import { siteConfig } from '@/config/siteConfig'
 
 export default function Footer() {
   const pathname = usePathname()
@@ -20,8 +13,8 @@ export default function Footer() {
       <div className="container-site section--tight">
         <div className="footer-inner">
           <div className="min-w-0">
-            <p className="font-serif text-[clamp(1.3rem,3.5vw,2rem)] text-jsc-ink leading-tight">
-              {siteConfig.brandName}
+            <p className="footer-brand-wordmark font-serif text-jsc-ink">
+              Jonathan<br />Simpson &amp;<br />Co.
             </p>
             <p className="text-[0.78rem] text-jsc-muted mt-1.5 leading-relaxed max-w-sm">
               {siteConfig.positioningStatement}
@@ -29,7 +22,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="footer-heading">Connect</p>
+            <p className="footer-heading">{siteConfig.footer.columnHeadings.connect}</p>
             <ul className="footer-links">
               {siteConfig.socialLinks.map((link) => (
                 <li key={link.label}>
@@ -46,9 +39,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="footer-heading">Explore</p>
+            <p className="footer-heading">{siteConfig.footer.columnHeadings.explore}</p>
             <ul className="footer-links">
-              {readLinks.map((link) => (
+              {siteConfig.footer.exploreLinks.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href}>{link.label}</Link>
                 </li>
@@ -57,7 +50,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="footer-heading">Start</p>
+            <p className="footer-heading">{siteConfig.footer.columnHeadings.start}</p>
             <a
               href={siteConfig.primaryCta.href}
               target="_blank"
@@ -73,9 +66,7 @@ export default function Footer() {
       <div className="border-t border-jsc-line">
         <div className="container-site py-4">
           <p className="text-[0.72rem] text-jsc-muted">
-            &copy; {new Date().getFullYear()} {siteConfig.brandName}. All
-            rights reserved. This is a demonstration application. Reference
-            pricing and pipeline simulations are for illustrative purposes only.
+            &copy; {new Date().getFullYear()} {siteConfig.brandName}. {siteConfig.footer.copyright}
           </p>
         </div>
       </div>

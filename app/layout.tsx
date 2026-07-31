@@ -3,6 +3,7 @@ import { Inter, IBM_Plex_Mono } from 'next/font/google'
 import './globals.css'
 import HeaderNav from '@/components/site/HeaderNav'
 import Footer from '@/components/site/Footer'
+import { siteConfig } from '@/config/siteConfig'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,17 +19,23 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://automation.jonathansimpson.co'),
+  metadataBase: new URL(siteConfig.seo.metadataBase),
   title: {
-    template: '%s | JS&C Automation',
-    default: 'JS&C Automation — Zero-Data-Retention Agentic AI for HK Finance',
+    template: siteConfig.seo.titleTemplate,
+    default: siteConfig.seo.defaultTitle,
   },
-  description:
-    'Simulate ZDR multi-agent pipelines that eliminate junior analyst overhead while maintaining SFC, HKMA, and PCPD compliance. Built by Jonathan Simpson & Co.',
+  description: siteConfig.seo.defaultDescription,
+  keywords: siteConfig.seo.defaultKeywords,
+  alternates: {
+    canonical: siteConfig.seo.canonical,
+    types: {
+      'text/markdown': '/home.md',
+    },
+  },
   openGraph: {
     type: 'website',
-    siteName: 'JS&C Automation',
-    locale: 'en_HK',
+    siteName: siteConfig.seo.website.name,
+    locale: siteConfig.seo.locale,
     url: '/',
   },
   twitter: {
@@ -48,23 +55,22 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Jonathan Simpson & Co.',
-  url: 'https://jonathansimpson.co',
-  description: 'Premium compliance-first Agentic AI middleware for SFC-licensed financial SMEs in Hong Kong.',
+  name: siteConfig.seo.organization.name,
+  url: siteConfig.seo.organization.url,
+  description: siteConfig.seo.organization.description,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Central',
-    addressRegion: 'Hong Kong',
+    addressLocality: siteConfig.seo.organization.addressLocality,
+    addressRegion: siteConfig.seo.organization.addressRegion,
   },
 }
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'JS&C Automation Demo',
-  url: 'https://automation.jonathansimpson.co',
-  description:
-    'Interactive demo of Zero-Data-Retention Agentic AI middleware for Hong Kong financial institutions.',
+  name: siteConfig.seo.website.name,
+  url: siteConfig.url,
+  description: siteConfig.seo.website.description,
 }
 
 export default function RootLayout({
@@ -72,11 +78,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang={siteConfig.seo.lang}
       className={`${inter.variable} ${ibmPlexMono.variable} antialiased`}
       data-scroll-behavior="smooth"
     >
       <body className="min-h-screen flex flex-col bg-jsc-bg text-jsc-ink font-sans">
+        <link rel="llms.txt" href="/llms.txt" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

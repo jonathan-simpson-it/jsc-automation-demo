@@ -62,3 +62,11 @@ The strongest demo story ties these two pipelines into a single seamless automat
 ```
 
 This presents a complete ecosystem: **Automated Data Capture $\rightarrow$ Human Refinement $\rightarrow$ Multi-tier Governance $\rightarrow$ Final Delivery**.
+
+---
+
+> "Real-Time HKEx & IPO Lead Scraping: AI monitoring agents continuously track HKEx filings, regulatory updates, and IPO applications to flag listed companies and private issuers in immediate need of financial printing, prospectuses, and annual/interim reports."
+
+and
+
+> "internal ticket which I sent in zip file (dont forget to change the color and remove the logo and change all the name) basically don’t let people know abotu it"

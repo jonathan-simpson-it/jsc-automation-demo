@@ -165,60 +165,57 @@ BaseLayout
 ### 6. Footer Layout
 
 ```
-Footer.astro
-  └── <footer class="site-footer">
-        └── <div class="container footer-inner">
-              ├── Brand column  (2fr) — large serif wordmark + positioning statement
-              ├── Connect       (1fr) — social link list
-              ├── Read          (1fr) — blog, case studies, products, applications
-              ├── Help          (1fr) — support/FAQ link (conditionally rendered)
-              └── Start         (1fr) — ghost CTA button
-        └── <div class="container footer-meta">
-              └── © copyright line
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>    <!-- Brand  2fr -->
+      <p class="footer-brand-large">Jonathan<br />Simpson &amp;<br />Co.</p>
+      <p class="text-muted">Positioning statement</p>
+    </div>
+    <div>    <!-- Connect 1fr -->
+      <p class="footer-heading">Connect</p>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/company/jonathan-simpson-co">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>    <!-- Read 1fr -->
+      <p class="footer-heading">Read</p>
+      <ul class="footer-links">
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/work/">Case studies</a></li>
+        <li><a href="/products/">Products</a></li>
+        <li><a href="/applications/">Applications</a></li>
+      </ul>
+    </div>
+    <div>    <!-- Help 1fr (optional) -->
+      <p class="footer-heading">Help</p>
+      <ul class="footer-links">
+        <li><a href="/support/">Support & FAQ</a></li>
+      </ul>
+    </div>
+    <div>    <!-- Start 1fr -->
+      <p class="footer-heading">Start</p>
+      <a class="button button--ghost button--small" href="/contact/">Start a project</a>
+    </div>
+  </div>
+  <div class="container footer-meta">
+    <p>&copy; 2025 Brand name. All rights reserved.</p>
+  </div>
+</footer>
 ```
 
-**Grid definition:**
+**Grid:** `.footer-inner` → `2fr 1fr 1fr 1fr 1fr` gap `2rem`. At `≤768px` → `1fr 1fr`, brand spans `grid-column: 1 / -1`.
 
-- `.footer-inner` → 5-column grid: `2fr 1fr 1fr 1fr 1fr` with `2rem` gap
-- At `768px` → collapses to `1fr 1fr` (2-column), brand column spans full width with `grid-column: 1 / -1`
+**`.footer-heading`** — `0.75rem`, uppercase, letter-spacing `0.08em`, color `var(--color-accent)`. Used as the title for each column.
 
-**Columns explained:**
+**`.footer-brand-large`** — serif (`--font-display`), stacked 3-line wordmark (`Jonathan` / `Simpson &` / `Co.`), `clamp(3rem, 6.5vw, 5.5rem)`, `line-height: 0.95`, `letter-spacing: -0.02em`, `margin-bottom: 1.5rem`, near-black (`--color-ink`).
 
-| Column  | Width | Content                                                                             | Notes                                                                                                                           |
-| ------- | ----- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Brand   | 2fr   | `.footer-brand-large` serif wordmark + `.muted` positioning statement               | Wordmark uses `--font-display`, `clamp(1.6rem, 4.5vw, 3.5rem)`, no uppercase, no letter-spacing — it's a scaled-down hero title |
-| Connect | 1fr   | Heading `.footer-heading` ("Connect") + `.footer-links` list of `socialLinks`       | Links come from `siteConfig.ts` `socialLinks[]` — typically LinkedIn, GitHub, email                                             |
-| Read    | 1fr   | Heading (varies) + `.footer-links` list: Blog, Case studies, Products, Applications | Hardcoded in-component links to content archives                                                                                |
-| Help    | 1fr   | Heading ("Help") + Support & FAQ link                                               | Conditionally rendered via `supportUrl` prop — can be omitted                                                                   |
-| Start   | 1fr   | Heading ("Start") + `.button.button--ghost.button--small` CTA                       | Ghost button styling — bg is transparent, text is near-black, hover goes accent                                                 |
+**`.footer-links` a** — `0.9rem`, `--color-ink`, no underline. Hover/focus → `--color-accent`.
 
-**Styling rules:**
+**`.site-footer`** — `border-top: 1px solid var(--color-line)`, padding-block `~3rem`.
 
-- `.site-footer` has a `border-top: 1px solid var(--color-line)` — it's the only full-width top border on the page
-- `.footer-heading` → `0.75rem`, uppercase, `0.08em` letter-spacing, `--color-accent` — matches the eyebrow pattern
-- `.footer-links` → stacked vertically with `0.45rem` gap, links are `0.9rem`, `--color-ink`, no underline, hover goes `--color-accent`
-- `.footer-meta` → separated by another `--color-line` border, `0.85rem` muted text, simple copyright line
+**`.footer-meta`** — `border-top: 1px solid var(--color-line)`, `0.85rem` muted text.
 
-**Data flow:**
-
-- Props: `brandName`, `positioningStatement`, `socialLinks[]`, `primaryCta`, `supportUrl?` — all sourced from `siteConfig.ts` global config
-- `socialLinks` is an array of `{ label: string, href: string }` — typically at least LinkedIn, X/Twitter, email
-- `primaryCta` is `{ label: string, href: string }` — same structure used throughout the site
-- Year is generated client-side via `new Date().getFullYear()` (no build-time lock-in)
-
-**Responsive behavior:**
-
-- `>768px`: 5-column grid, brand takes 2/6 of the width
-- `≤768px`: 2-column grid (`1fr 1fr`), brand spans full width, columns reflow naturally
-- No further breakpoints needed — the grid auto-wraps via `auto-fit` fallback if more columns were added
-
-**Variation guidance (for other sites):**
-
-- Adjust column ratios as needed (e.g., brand could be `1fr` or `3fr` depending on emphasis)
-- Reduce or add link columns based on site sections — keep the column heading pattern consistent
-- The ghost CTA column can be replaced with a newsletter signup, a contact button, or removed entirely
-- Social links should always be text-based labels, not icon-only (matches the editorial, no-icon aesthetic)
-- The `supportUrl` conditional pattern can be extended to any optional column (hide the entire `<div>` when no data exists)
+**Data source:** Links, brand name, and tagline come from `siteConfig.ts`. Social links array: currently `[{ label: "LinkedIn", href: "https://www.linkedin.com/company/jonathan-simpson-co" }]`. Help column renders conditionally.
 
 ### 7. Responsive Breakpoints
 
