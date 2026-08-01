@@ -61,7 +61,7 @@ The single biggest success factor is choosing the right workflow. The ideal pilo
 
 Good candidates: internal reconciliation checking, statement ingestion, report formatting, data extraction from standard documents. Bad candidates: anything that changes a client outcome without a review gate.
 
-## Phase 1: The masked-data dry run (days 1–5)
+## Phase 1: The masked-data dry run (days 1-5)
 
 Run the pipeline on masked or synthetic data first. This phase proves the mechanics without touching real client data:
 
@@ -72,7 +72,7 @@ Run the pipeline on masked or synthetic data first. This phase proves the mechan
 
 Exit criterion: the pipeline produces results matching the manual process on test data, with no unresolved system errors.
 
-## Phase 2: Controlled live run (days 6–25)
+## Phase 2: Controlled live run (days 6-25)
 
 Move to real data with every control in place:
 
@@ -98,7 +98,7 @@ Decide the metrics and pass thresholds **before** the pilot starts. The useful o
 
 Ignore vanity metrics: "accuracy" without a baseline, hours of demo time, and the vendor's benchmarks. The pilot's job is to produce a decision, not an impression.
 
-## Phase 3: The decision and the kill switch (days 26–30)
+## Phase 3: The decision and the kill switch (days 26-30)
 
 Day 30 produces one of three outcomes, and all three are legitimate:
 

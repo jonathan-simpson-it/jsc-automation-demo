@@ -56,7 +56,7 @@ A typical close for a small-to-mid-sized firm in Hong Kong runs five days. Here 
 | Day 4 | Accruals, adjustments, inter-company matching | Manual calculations |
 | Day 5 | Consolidation, review, management reporting, sign-off | Last-minute everything |
 
-The uncomfortable finding: **days 1–3 are almost entirely avoidable work.** The accounting judgment (the accruals, the adjustments, the approvals) fits into roughly two days. The other three are data logistics.
+The uncomfortable finding: **days 1-3 are almost entirely avoidable work.** The accounting judgment (the accruals, the adjustments, the approvals) fits into roughly two days. The other three are data logistics.
 
 ## The three bottlenecks, and how to remove them
 

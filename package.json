@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/fetch-blog-images.mjs",
+    "prebuild": "npm run check:dashes && node scripts/fetch-blog-images.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "check:dashes": "node scripts/check-no-dashes.mjs",
     "images": "node scripts/fetch-blog-images.mjs",
-    "new:post": "node scripts/new-post.mjs"
+    "new:post": "node scripts/new-post.mjs",
+    "prepare": "husky"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
@@ -28,6 +30,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
+    "husky": "^9.1.7",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

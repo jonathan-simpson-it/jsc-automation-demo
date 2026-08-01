@@ -12,14 +12,14 @@ The JS&C Automation Demo is an interactive, front-end-driven web application bui
 
 ### Persona 1: The Managing Director / Partner (Buy-Side SME)
 
-**Role:** Owner or Chief Investment Officer at an SFC Type 4/9 Asset Manager in Central ($5$–$20$ staff).
+**Role:** Owner or Chief Investment Officer at an SFC Type 4/9 Asset Manager in Central ($5$-$20$ staff).
 **Pain Point:** Drowning in operational costs; junior analysts spend mornings manually consolidating custodian reports instead of doing research.
 **Goal:** Wants to lower cost-to-income ratio without taking regulatory risks or spending $\text{HKD } 500\text{k}+$ upfront on custom software.
 
 ### Persona 2: The Chief Compliance Officer (CCO)
 
-**Role:** Head of Legal & Compliance at a Licensed Brokerage ($10$–$30$ staff).
-**Pain Point:** Fear of "Shadow IT"—employees secretly using ChatGPT with client PII, risking PCPD fines and SFC audit failures.
+**Role:** Head of Legal & Compliance at a Licensed Brokerage ($10$-$30$ staff).
+**Pain Point:** Fear of "Shadow IT"-employees secretly using ChatGPT with client PII, risking PCPD fines and SFC audit failures.
 **Goal:** Needs proof that AI execution happens in an ephemeral, audited, zero-data-retention RAM sandbox with Human-in-the-Loop controls.
 
 ### Persona 3: Cyberport CCMF Grant Assessor
@@ -116,14 +116,14 @@ A interactive visual grid demonstrating integration capabilities without requiri
 
 An interactive ROI calculator paired with reference pricing cards.
 
-**Interactive ROI Slider:** User inputs current junior analyst headcount ($1$–$5$ FTEs) to calculate instant annual savings.
+**Interactive ROI Slider:** User inputs current junior analyst headcount ($1$-$5$ FTEs) to calculate instant annual savings.
 
 **Reference Pricing Tiers:**
 
-- **Starter (Foundation):** $\text{HKD } 8,000/\text{month}$ ($\text{HKD } 12,000$ setup) — $1$ workflow, micro-firms ($1$–$5$ staff).
-- **Core:** $\text{HKD } 12,000/\text{month}$ ($\text{HKD } 15,000$ setup) — $3$ workflows, $4$–$10$ staff.
-- **Pro Tier (Featured "Sweet Spot"):** $\text{HKD } 15,000/\text{month}$ ($\text{HKD } 22,000$ setup) — $5$ workflows, priority support, $10$–$25$ staff.
-- **Scale / Enterprise:** $\text{HKD } 22,000$–$\text{HKD } 32,000+/\text{month}$ (Custom setup) — Dedicated local LLM hosting, custom API connections.
+- **Starter (Foundation):** $\text{HKD } 8,000/\text{month}$ ($\text{HKD } 12,000$ setup) - $1$ workflow, micro-firms ($1$-$5$ staff).
+- **Core:** $\text{HKD } 12,000/\text{month}$ ($\text{HKD } 15,000$ setup) - $3$ workflows, $4$-$10$ staff.
+- **Pro Tier (Featured "Sweet Spot"):** $\text{HKD } 15,000/\text{month}$ ($\text{HKD } 22,000$ setup) - $5$ workflows, priority support, $10$-$25$ staff.
+- **Scale / Enterprise:** $\text{HKD } 22,000$-$\text{HKD } 32,000+/\text{month}$ (Custom setup) - Dedicated local LLM hosting, custom API connections.
 
 **Mandatory Pricing Disclaimer Banner:**
 
@@ -140,7 +140,7 @@ Transparent 6-month budget breakdown mapping the $\text{HKD } 100,000$ Cyberport
 
 ## 5. Non-Functional & Performance Requirements
 
-**Speed & Latency:** Zero external server wait times during demo runs. Simulated steps run on deterministic client-side timers ($800\text{ms}$–$1200\text{ms}$ per pipeline stage).
+**Speed & Latency:** Zero external server wait times during demo runs. Simulated steps run on deterministic client-side timers ($800\text{ms}$-$1200\text{ms}$ per pipeline stage).
 
 **Zero Authentication Overhead:** No login walls, passwords, or registration required to interact with the simulator.
 

@@ -39,7 +39,7 @@ imageAlt: >-
   operations automation guide for Hong Kong firms
 ---
 
-**Multi-custodian NAV reconciliation is one of the most automatable functions in an asset manager: the checking, variance classification, and reporting can run without human hands while humans stay in control of exceptions and sign-off.** The typical firm spends 10–20 analyst-hours per day pulling statements from portals, pasting numbers into spreadsheets, and chasing differences. A well-built pipeline reduces that to a few minutes of human review per cycle.
+**Multi-custodian NAV reconciliation is one of the most automatable functions in an asset manager: the checking, variance classification, and reporting can run without human hands while humans stay in control of exceptions and sign-off.** The typical firm spends 10-20 analyst-hours per day pulling statements from portals, pasting numbers into spreadsheets, and chasing differences. A well-built pipeline reduces that to a few minutes of human review per cycle.
 
 This is a step-by-step blueprint you can take to your ops team or a vendor. It covers ingestion, normalisation, variance checks, exception handling, and the audit trail. It is deliberately vendor-neutral, because the architecture matters more than the tool.
 

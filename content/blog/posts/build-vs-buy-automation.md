@@ -24,7 +24,7 @@ faq:
   - question: What is the hidden cost of building in-house?
     answer: >-
       Ongoing ownership: model updates, security patching, compliance changes,
-      connector maintenance, and support. The first year is typically 50–100%
+      connector maintenance, and support. The first year is typically 50-100%
       more than the initial build once these are counted.
   - question: When should a firm build rather than buy?
     answer: >-
@@ -51,13 +51,13 @@ The build route's first error is comparing the demo to the subscription. A demo 
 
 | Component | Effort |
 |---|---|
-| Working prototype | 2–4 weeks |
-| Production hardening (error handling, retries, monitoring) | 4–8 weeks |
-| Security and data protection (masking, encryption, access control) | 3–6 weeks |
-| Compliance engineering (audit trails, approvals, versioning) | 3–6 weeks |
-| Connectors and integrations (custodian portals, accounting systems) | 4–12 weeks |
-| Testing and sign-off | 2–4 weeks |
-| **Total first year** | **4–10 months of engineering** |
+| Working prototype | 2-4 weeks |
+| Production hardening (error handling, retries, monitoring) | 4-8 weeks |
+| Security and data protection (masking, encryption, access control) | 3-6 weeks |
+| Compliance engineering (audit trails, approvals, versioning) | 3-6 weeks |
+| Connectors and integrations (custodian portals, accounting systems) | 4-12 weeks |
+| Testing and sign-off | 2-4 weeks |
+| **Total first year** | **4-10 months of engineering** |
 
 At HK market rates for capable engineering, the first year lands well above the buy route's recurring cost, before a single line of maintenance. The build route only makes sense when that engineering capacity exists and is paid for anyway.
 
@@ -71,7 +71,7 @@ The decision is made in year two, not year one. Ownership of a built system mean
 - **Connector maintenance**: custodian portals change their formats without notice
 - **Support**: someone is accountable when it breaks, at 5:30am
 
-Count 20–30% of the original build effort per year in ownership. Most firms that build discover this after the founding engineer has left, and the system becomes a liability, not an asset.
+Count 20-30% of the original build effort per year in ownership. Most firms that build discover this after the founding engineer has left, and the system becomes a liability, not an asset.
 
 ## What buy actually buys
 
@@ -85,7 +85,7 @@ The buy route is not "pay a subscription and it runs." The reference model for a
 | Compliance engineering | Audit trails and approval gates built to your requirements |
 | Ownership | The vendor owns the maintenance burden by contract |
 
-The price is meaningful (roughly 65% below a fully loaded junior analyst), but what is really being purchased is *ownership transfer*: the maintenance, the updates, and the accountability for keeping the system alive.
+The price is meaningful (in the reference case, roughly 65% below a fully loaded junior analyst; every engagement is bespoke and custom-quoted against scope), but what is really being purchased is *ownership transfer*: the maintenance, the updates, and the accountability for keeping the system alive.
 
 ## When build genuinely wins
 
@@ -103,10 +103,10 @@ If none of these apply, the buy route wins on every axis that matters: cost, tim
 Put both routes on one model and let the numbers decide:
 
 - Initial cost (build: engineering effort; buy: setup fee)
-- Annual ownership (build: 20–30% of build per year; buy: recurring fee)
-- Time to value (build: 4–10 months; buy: weeks)
+- Annual ownership (build: 20-30% of build per year; buy: recurring fee)
+- Time to value (build: 4-10 months; buy: weeks)
 - Probability of delivery (build: depends on team continuity; buy: contract)
-- Value automated (the cost of the work replaced, using the fully loaded FTE model)
+- Value automated (the cost of the work automated, using the fully loaded FTE model)
 
 Where build and buy come close, the tie-breaker is delivery risk. A governed deployment with a contract, a pilot, and a defined scope carries less execution risk than a build that depends on a small team's continuity.
 
@@ -116,7 +116,7 @@ Where build and buy come close, the tie-breaker is delivery risk. A governed dep
 Only for firms with the engineering capacity to own a production system long-term. Production, security, and compliance engineering dominate the build cost, not the initial demo script.
 
 **What is the hidden cost of building in-house?**
-Ongoing ownership: model updates, security patching, compliance changes, connector maintenance, and support. Year one is typically 50–100% more than the initial build once these are counted.
+Ongoing ownership: model updates, security patching, compliance changes, connector maintenance, and support. Year one is typically 50-100% more than the initial build once these are counted.
 
 **When should a firm build rather than buy?**
 When the workflow is genuinely unique, when data cannot leave the perimeter, or when scale justifies owning the engineering team. Otherwise a governed vendor deployment reaches value faster.

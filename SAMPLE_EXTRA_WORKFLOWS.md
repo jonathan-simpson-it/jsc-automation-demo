@@ -1,4 +1,4 @@
-Both pipelines address core operational pain points for corporate clients—specifically **efficient data ingestion** and **goverated human-in-the-loop (HITL) approval**. Positioning them as modular components within your workflow demo suite lets you show prospective clients both how data gets pulled automatically and how it safely moves through enterprise hierarchies.
+Both pipelines address core operational pain points for corporate clients-specifically **efficient data ingestion** and **goverated human-in-the-loop (HITL) approval**. Positioning them as modular components within your workflow demo suite lets you show prospective clients both how data gets pulled automatically and how it safely moves through enterprise hierarchies.
 
 ---
 
@@ -31,7 +31,7 @@ Both pipelines address core operational pain points for corporate clients—spec
 
 ### Demo & Pitch Value
 
-- **Value Proposition:** Solves the primary fear corporate leaders have regarding automation and junior output—lack of quality control and oversight.
+- **Value Proposition:** Solves the primary fear corporate leaders have regarding automation and junior output-lack of quality control and oversight.
 - **Target Demo Use Cases:**
 - **Client Deliverable Sign-Off:** Reviewing AI-assisted research reports or audit drafts before client delivery.
 - **Compliance & Escalation:** Ensuring dual-key verification on high-risk financial or legal communications.

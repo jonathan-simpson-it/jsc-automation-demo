@@ -78,9 +78,9 @@ None of these are technical. All of them were more predictive of success than th
 
 ## What the economics looked like
 
-The reference model held up: deployments at roughly 65% of fully loaded junior-analyst cost, with the real gains appearing in year two as capacity grew without headcount. Two findings stood out:
+The reference model held up: deployments at roughly 65% of fully loaded junior-analyst cost (reference case; engagements are bespoke and custom-quoted), with the real gains appearing in year two as capacity grew through augmentation. Two findings stood out:
 
-- **The cost savings were real but the capacity savings were bigger.** Firms did not shrink teams; they absorbed more work per cycle: more clients, more frequent reporting, deeper review.
+- **The cost savings were real but the capacity savings were bigger.** Firms did not shrink teams and did not need to hire; analysts absorbed more meaningful work per cycle: more clients, more frequent reporting, deeper review, while the pipeline took the volume.
 - **The error savings were invisible until they were visible.** Firms rarely measured manual error rates before automation; after, the flagged exceptions gave them a number, and a control they had not had before.
 
 ## What year two looks like

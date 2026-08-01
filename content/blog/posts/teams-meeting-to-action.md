@@ -46,7 +46,7 @@ The pitch for automation here is usually framed as "AI meeting notes." That unde
 
 ## Why follow-through dies in small firms
 
-In a firm of 10–25 people, most decisions are made verbally and carried in heads. The failure chain is predictable:
+In a firm of 10-25 people, most decisions are made verbally and carried in heads. The failure chain is predictable:
 
 1. The decision is made in a meeting
 2. The owner mentally notes it, or a chat message half-records it

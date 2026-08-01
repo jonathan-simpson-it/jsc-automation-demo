@@ -132,13 +132,13 @@ export interface ISimulatorState {
 
 **User Trigger:** User clicks "Execute Pipeline" or selects a mock input file (e.g., HSBC_Custodian_NAV_20260728.pdf).
 
-**Step 1: Secure Ingestion & Sanitization ($0\text{ms}$–$1000\text{ms}$):**
+**Step 1: Secure Ingestion & Sanitization ($0\text{ms}$-$1000\text{ms}$):**
 State sets currentStep = 1, status processing. Visually animates text redaction on mock document viewer (masking Client Name $\rightarrow$ [REDACTED_PII_01]).
 
-**Step 2: Ephemeral RAM Processing ($1000\text{ms}$–$2200\text{ms}$):**
+**Step 2: Ephemeral RAM Processing ($1000\text{ms}$-$2200\text{ms}$):**
 State sets currentStep = 2. Displays pulsing HK virtual server node status (RAM Buffer: Ephemeral Sandbox 0x8F2A).
 
-**Step 3: Multi-Agent AI-vs-AI Governance ($2200\text{ms}$–$3400\text{ms}$):**
+**Step 3: Multi-Agent AI-vs-AI Governance ($2200\text{ms}$-$3400\text{ms}$):**
 State sets currentStep = 3. Renders dual agent verification logs (Agent_Alpha: Variance Check vs Agent_Beta: SFC Rule Gate).
 
 **Step 4: Non-PII Audit Dispatch ($3400\text{ms}+$):**

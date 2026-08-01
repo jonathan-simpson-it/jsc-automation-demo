@@ -27,9 +27,10 @@ faq:
       the vendor cannot answer these in writing, that is the answer.
   - question: How do you know if an AI price is fair?
     answer: >-
-      Price against the cost of the work it replaces (per-cycle or
-      per-headcount), not against other vendor list prices. The reference
-      economics are roughly 65% below a fully loaded junior analyst.
+      Price against the cost of the work it automates (per-cycle or per-FTE),
+      not against other vendor list prices. In the reference case, a deployed
+      pipeline runs roughly 65% below the fully loaded cost of a junior
+      analyst; every engagement is bespoke and custom-quoted against scope.
   - question: What contract terms matter most for AI?
     answer: >-
       Scope of processing, security and deletion commitments, audit rights,
@@ -43,7 +44,7 @@ imageAlt: >-
 
 **Most small firms that buy AI are sold a tool, not a result, and the difference shows up in the first renewal.** The seven pitfalls below cover the procurement mistakes we see repeatedly at boutique asset managers, IAMs, and family offices in Hong Kong: buying before defining, paying for features nobody uses, and signing contracts that hand client data to vendors without the protections that matter.
 
-The good news is that each pitfall has a counterpart checklist item. This guide is written for the buyer side of the table: what to ask, what to demand in the contract, and how to price a tool against the work it replaces rather than the vendor's list.
+The good news is that each pitfall has a counterpart checklist item. This guide is written for the buyer side of the table: what to ask, what to demand in the contract, and how to price a tool against the work it automates rather than the vendor's list.
 
 ## Pitfall 1: Buying before mapping the process
 
@@ -65,9 +66,9 @@ The single most important question for a regulated firm: **what happens to clien
 
 ## Pitfall 4: Pricing against the wrong benchmark
 
-Vendor pricing feels reasonable next to another vendor's pricing. It only means something next to the cost of the work being replaced. A tool priced below a headcount can still be a bad buy if it replaces nothing.
+Vendor pricing feels reasonable next to another vendor's pricing. It only means something next to the cost of the work being automated. A tool priced below an FTE can still be a bad buy if it automates nothing.
 
-**The fix:** price per workflow or per cycle against the current cost of that work: time cost, error cost, and management review. The reference economics: a deployed pipeline runs roughly 65% below the fully loaded cost of a junior analyst.
+**The fix:** price per workflow or per cycle against the current cost of that work: time cost, error cost, and management review. The reference economics: a deployed pipeline runs roughly 65% below the fully loaded cost of a junior analyst, with engagements bespoke and custom-quoted against scope.
 
 ## Pitfall 5: Signing the template contract
 
@@ -92,7 +93,7 @@ The demo is not a pilot. Firms that sign after a demo and discover problems in m
 - [ ] Process mapped and baseline measured before any demo
 - [ ] Three to five outcomes defined, scored per candidate
 - [ ] Written data answers: location, training, retention, subprocessors, deletion
-- [ ] Pricing benchmarked against the cost of the work replaced
+- [ ] Pricing benchmarked against the cost of the work automated
 - [ ] Contract reviewed for the core protections listed above
 - [ ] Pilot agreed with pre-defined pass thresholds
 - [ ] Named owner with renewal authority and termination duty
@@ -106,7 +107,7 @@ Buying a tool before defining the process. Firms that map the workflow and basel
 Where data is processed and stored, whether it trains the model, what happens on termination, subprocessors, and how deletion is verified. If the vendor cannot answer in writing, that is the answer.
 
 **How do you know if an AI price is fair?**
-Price against the cost of the work it replaces (per-cycle or per-headcount), not against other list prices. Reference economics are roughly 65% below a fully loaded junior analyst.
+Price against the cost of the work it automates (per-cycle or per-FTE), not against other list prices. Reference economics are roughly 65% below a fully loaded junior analyst; every engagement is bespoke and custom-quoted against scope.
 
 **What contract terms matter most for AI?**
 Scope of processing, security and deletion commitments, audit rights, service levels, liability allocation, termination and data return, and change control.

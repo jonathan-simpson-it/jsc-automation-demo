@@ -19,14 +19,14 @@ After that, publishing is zero-touch:
 | Date | Slug | Title | Cluster | Preconditions |
 |------|------|-------|---------|---------------|
 | 2026-08-15 | `ai-vendor-pitfalls-hk` | Seven pitfalls when buying AI as a small HK firm | economics | Draft complete; re-read against real vendor interactions before publish |
-| 2026-09-01 | `ai-vs-ai-governance` | AI-vs-AI governance — catching hallucinations before they reach a client report | compliance | Draft complete; add deployment evidence if available |
-| 2026-10-01 | `build-vs-buy-automation` | Build vs buy — what boutique HK firms actually save | economics | Draft complete; update figures against a real scoping example |
-| 2026-11-01 | `pcpd-data-lifecycle-map` | PCPD amendments and your data lifecycle — a practical map | compliance | Verify against the published amendment text; update FAQ answers |
-| 2026-12-01 | `middle-office-automation-year-one` | One year of middle-office automation — what HK deployments taught us | operations | Draft complete; add real deployment learnings, anonymised |
+| 2026-09-01 | `ai-vs-ai-governance` | AI-vs-AI governance - catching hallucinations before they reach a client report | compliance | Draft complete; add deployment evidence if available |
+| 2026-10-01 | `build-vs-buy-automation` | Build vs buy - what boutique HK firms actually save | economics | Draft complete; update figures against a real scoping example |
+| 2026-11-01 | `pcpd-data-lifecycle-map` | PCPD amendments and your data lifecycle - a practical map | compliance | Verify against the published amendment text; update FAQ answers |
+| 2026-12-01 | `middle-office-automation-year-one` | One year of middle-office automation - what HK deployments taught us | operations | Draft complete; add real deployment learnings, anonymised |
 
-All five are fully drafted and image-embedded (images were fetched at scaffold time from title + keywords). They will surface automatically on their dates — no action required unless you want to edit them first.
+All five are fully drafted and image-embedded (images were fetched at scaffold time from title + keywords). They will surface automatically on their dates - no action required unless you want to edit them first.
 
 ## Cadence
 
-2 posts/month for the first 3–6 months (15 Aug, 1 Sep, 1 Oct, 1 Nov, 1 Dec 2026), then 1/month sustained.
+2 posts/month for the first 3-6 months (15 Aug, 1 Sep, 1 Oct, 1 Nov, 1 Dec 2026), then 1/month sustained.
 Always slot new posts into an existing cluster (compliance / operations / economics) so related-articles linking stays strong.

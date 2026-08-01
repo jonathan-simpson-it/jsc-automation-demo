@@ -110,23 +110,23 @@ Low Compliance      | Traditional IT    | Generic APIs       |
 - **Enterprise Agreement (EA) Barrier Bypass:** Major AI providers require gated enterprise agreements for Zero-Data-Retention and modified abuse monitoring. JS&C aggregates SME tenant volume onto pre-approved, compliant infrastructure.
 - **Regional Data Pinning:** Execution environments are strictly locked to virtual server instances physically located in Hong Kong and Singapore.
 - **Sandbox++ Multi-Agent Verification:** Native AI-vs-AI auditing engines that check outputs directly against SFC and HKMA guidelines before human sign-off.
-- **The Junior Reframe:** Automation absorbs the manual consolidation work, freeing junior analysts for research, analysis, and client-facing value—a talent-retention play, not a hiring freeze.
+- **The Junior Reframe:** Automation absorbs the manual consolidation work, freeing junior analysts for research, analysis, and client-facing value-a talent-retention play, not a hiring freeze.
 
 ## 5. Primary Workflows Selected for the Interactive Demo
 
 Based on market demand and regulatory friction, three primary workflows were chosen for the automation.jonathansimpson.co demonstration engine:
 
-### SFC Type 9 — Multi-Custodian NAV & Portfolio Memo Pipeline
+### SFC Type 9 - Multi-Custodian NAV & Portfolio Memo Pipeline
 
 - **Trigger:** Scheduled 5:30 AM portal data ingestion (HSBC/UBS/Julius Baer).
 - **Action:** Extracts multi-currency valuation tables, redacts PII, runs LLM portfolio variance analysis, outputs branded PDF summary to shared workspace by 7:30 AM.
 
-### SFC Type 1 — Automated KYC/AML Verification & Screening
+### SFC Type 1 - Automated KYC/AML Verification & Screening
 
 - **Trigger:** Incoming client document upload via Granola, Outlook, or portal.
 - **Action:** Parses identity documents, checks sanction watchlists, compiles risk scoring matrix, routes edge cases to Human-in-the-Loop queue.
 
-### SFC Type 6 — Due Diligence & Bank Statement Reconciliation
+### SFC Type 6 - Due Diligence & Bank Statement Reconciliation
 
 - **Trigger:** Batch statement drop or Xero invoice webhook.
 - **Action:** Fuzzy matching of PDF transaction entries against ledger items, flags unmatched anomalies, outputs cryptographic audit log.
