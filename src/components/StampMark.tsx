@@ -1,4 +1,4 @@
-/* StampMark — JS&C palette (DESIGN.md): ink #161714 rings, sage #80988f check. */
+/* StampMark - JS&C palette (DESIGN.md): ink #161714 rings, sage #80988f check. */
 export function StampMark({ size = 28, className }: { size?: number; className?: string }) {
   return (
     <svg
