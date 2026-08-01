@@ -384,6 +384,12 @@ export const siteConfig = {
     secondaryCta: 'Watch the Demo',
   },
 
+  regulatorStrip: {
+    eyebrow: 'Aligned with Hong Kong\u2019s regulatory framework',
+    note:
+      'Our architecture is engineered to support compliance with HKMA, SFC, and PCPD obligations for SFC-licensed financial firms in Hong Kong.',
+  },
+
   blog: {
     listingHeading: 'Latest Insights',
     listingSubtext:

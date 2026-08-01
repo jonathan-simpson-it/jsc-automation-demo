@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import HeroSection from '@/components/landing/HeroSection'
 import OpsTicker from '@/components/landing/OpsTicker'
+import RegulatorStrip from '@/components/landing/RegulatorStrip'
 import HowItWorks from '@/components/landing/HowItWorks'
 import VideoSection from '@/components/landing/VideoSection'
 import ConnectorMatrix from '@/components/landing/ConnectorMatrix'
@@ -44,6 +45,7 @@ export default function LandingPage() {
           <OpsTicker />
         </div>
       </section>
+      <RegulatorStrip />
       <HowItWorks />
       <VideoSection />
       <ConnectorMatrix />
