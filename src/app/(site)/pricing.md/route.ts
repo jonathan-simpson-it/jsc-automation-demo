@@ -1,7 +1,8 @@
-import { siteConfig } from '@/config/siteConfig'
+import { NextResponse } from 'next/server'
 
 export async function GET() {
-  return new Response(siteConfig.pricingMd, {
-    headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
-  })
+  return NextResponse.redirect(
+    new URL('/engagement.md', process.env.NEXT_PUBLIC_SITE_URL || 'https://automation.jonathansimpson.co'),
+    { status: 301 }
+  )
 }

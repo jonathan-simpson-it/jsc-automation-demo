@@ -190,12 +190,12 @@ This bundle describes the site in machine-readable markdown. Each file covers on
 - [site.md](/okf/site.md): ${c.hero.headline.join(' ')} (homepage)
 - [demo.md](/okf/demo.md): ${c.seo.demo.ogTitle}
 - [blog.md](/okf/blog.md): Blog listing and per-post mirrors
-- [pricing.md](/okf/pricing.md): Engagement model
+- [engagement.md](/okf/engagement.md): Engagement model
 
 ## See also
 
 - [llms.txt](/llms.txt): plain-text site overview
-- [pricing.md](/pricing.md): engagement model for AI agents
+- [engagement.md](/engagement.md): engagement model for AI agents
 - [Homepage](/)
 
 Contact: ${c.primaryCta.href}
@@ -260,7 +260,7 @@ export function buildOkfBlogMd() {
   }) + body + postIndex
 }
 
-export function buildOkfPricingMd() {
+export function buildOkfEngagementMd() {
   const c = siteConfig
   const updated = new Date().toISOString().slice(0, 10)
 
@@ -269,7 +269,11 @@ export function buildOkfPricingMd() {
   return okfFrontmatter({
     title: 'Engagement | JS&C Automation',
     description: 'Bespoke engagement scoped to compliance and workflow needs.',
-    url: `${c.url}/okf/pricing.md`,
+    url: `${c.url}/okf/engagement.md`,
     updated,
   }) + body
+}
+
+export function buildOkfPricingMd() {
+  return buildOkfEngagementMd()
 }

@@ -227,6 +227,8 @@ export const siteConfig = {
     videoSrc: '/jsc-agent-chat.mp4',
     videoAriaLabel: 'Pipeline workflow demo video',
     fullscreenAriaLabel: 'Expand full screen',
+    muteAriaLabel: 'Mute video',
+    unmuteAriaLabel: 'Unmute video',
   },
 
   simplicity: {
@@ -523,7 +525,7 @@ Markdown mirrors of key pages (serve full content without rendering):
 - https://automation.jonathansimpson.co/home.md
 - https://automation.jonathansimpson.co/demo.md
 - https://automation.jonathansimpson.co/blog.md
-- https://automation.jonathansimpson.co/pricing.md
+- https://automation.jonathansimpson.co/engagement.md
 
 Open Knowledge Format bundle (Google-backed, markdown with YAML frontmatter):
 
@@ -531,7 +533,7 @@ Open Knowledge Format bundle (Google-backed, markdown with YAML frontmatter):
 - https://automation.jonathansimpson.co/okf/site.md
 - https://automation.jonathansimpson.co/okf/demo.md
 - https://automation.jonathansimpson.co/okf/blog.md
-- https://automation.jonathansimpson.co/okf/pricing.md
+- https://automation.jonathansimpson.co/okf/engagement.md
 `,
 
   pricingMd: `# Engagement | JS&C Automation

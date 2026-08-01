@@ -1,12 +1,13 @@
 'use client'
 
-import { useRef, useEffect, useCallback } from 'react'
-import { Expand } from 'lucide-react'
+import { useRef, useEffect, useCallback, useState } from 'react'
+import { Expand, Volume2, VolumeX } from 'lucide-react'
 import { siteConfig } from '@/config/siteConfig'
 
 export default function VideoSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const [isMuted, setIsMuted] = useState(true)
 
   const handleFullscreen = useCallback(() => {
     const el = sectionRef.current?.querySelector('video')
@@ -14,6 +15,15 @@ export default function VideoSection() {
       if (el.requestFullscreen) el.requestFullscreen()
       else if ('webkitRequestFullscreen' in el) (el as HTMLVideoElement & { webkitRequestFullscreen: () => void }).webkitRequestFullscreen()
     }
+  }, [])
+
+  const handleToggleMute = useCallback(() => {
+    const video = videoRef.current
+    if (!video) return
+    video.muted = !video.muted
+    if (!video.muted) video.volume = 1
+    setIsMuted(video.muted)
+    video.play().catch(() => {})
   }, [])
 
   useEffect(() => {
@@ -50,7 +60,7 @@ export default function VideoSection() {
         </div>
 
         <div className="video-app-frame mx-auto" style={{ maxWidth: 'min(100%, calc(65vh * 16 / 9))' }}>
-          <div className="relative bg-[#161718]">
+          <div className="relative bg-[#f4f4ef]">
             <video
               ref={videoRef}
               src={siteConfig.video.videoSrc}
@@ -60,13 +70,22 @@ export default function VideoSection() {
               className="w-full h-auto block"
               aria-label={siteConfig.video.videoAriaLabel}
             />
-            <button
-              onClick={handleFullscreen}
-              className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors duration-200 cursor-pointer"
-              aria-label={siteConfig.video.fullscreenAriaLabel}
-            >
-              <Expand size={14} className="text-white/70" />
-            </button>
+            <div className="absolute bottom-3 right-3 flex gap-2">
+              <button
+                onClick={handleToggleMute}
+                className="w-8 h-8 rounded-full bg-black/10 hover:bg-black/20 backdrop-blur-sm flex items-center justify-center transition-colors duration-200 cursor-pointer"
+                aria-label={isMuted ? siteConfig.video.unmuteAriaLabel : siteConfig.video.muteAriaLabel}
+              >
+                {isMuted ? <VolumeX size={14} className="text-jsc-ink/70" /> : <Volume2 size={14} className="text-jsc-ink/70" />}
+              </button>
+              <button
+                onClick={handleFullscreen}
+                className="w-8 h-8 rounded-full bg-black/10 hover:bg-black/20 backdrop-blur-sm flex items-center justify-center transition-colors duration-200 cursor-pointer"
+                aria-label={siteConfig.video.fullscreenAriaLabel}
+              >
+                <Expand size={14} className="text-jsc-ink/70" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

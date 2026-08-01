@@ -51,7 +51,7 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/dashboard" className="brand" aria-label="Stamp, pipeline home">
-          <img src="/jsc-logo.png" alt="" className="brand-mark-img" width={36} height={36} />
+          <img src="/JSC-logo.png" alt="" className="brand-mark-img" width={36} height={36} />
           <span className="brand-wordmark">Stamp</span>
         </Link>
 

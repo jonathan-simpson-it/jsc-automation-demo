@@ -85,7 +85,7 @@ The buy route is not "pay a subscription and it runs." The reference model for a
 | Compliance engineering | Audit trails and approval gates built to your requirements |
 | Ownership | The vendor owns the maintenance burden by contract |
 
-The price is meaningful (roughly 65% below a fully loaded junior analyst), but what is really being purchased is *ownership transfer*: the maintenance, the updates, and the accountability for keeping the system alive.
+The price is meaningful (in the reference case, roughly 65% below a fully loaded junior analyst; every engagement is bespoke and custom-quoted against scope), but what is really being purchased is *ownership transfer*: the maintenance, the updates, and the accountability for keeping the system alive.
 
 ## When build genuinely wins
 
@@ -106,7 +106,7 @@ Put both routes on one model and let the numbers decide:
 - Annual ownership (build: 20-30% of build per year; buy: recurring fee)
 - Time to value (build: 4-10 months; buy: weeks)
 - Probability of delivery (build: depends on team continuity; buy: contract)
-- Value automated (the cost of the work replaced, using the fully loaded FTE model)
+- Value automated (the cost of the work automated, using the fully loaded FTE model)
 
 Where build and buy come close, the tie-breaker is delivery risk. A governed deployment with a contract, a pilot, and a defined scope carries less execution risk than a build that depends on a small team's continuity.
 
