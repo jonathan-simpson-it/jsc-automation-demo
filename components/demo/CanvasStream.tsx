@@ -40,22 +40,22 @@ export default function CanvasStream({ workflow, visibleCount, activeIndex, step
             <div className="text-center max-w-lg">
               {info && (
                 <>
-                  <h2 className="font-sans text-[0.82rem] text-jsc-accent/80 font-medium tracking-[0.03em] mb-3">
+                  <h2 className="font-sans text-[0.82rem] text-jsc-accent font-medium tracking-[0.03em] mb-3">
                     {info.title}
                   </h2>
-                  <p className="text-[0.85rem] leading-relaxed text-white/40 mb-6">
+                  <p className="text-[0.85rem] leading-relaxed text-jsc-muted mb-6">
                     {info.description}
                   </p>
                 </>
               )}
               <button
                 onClick={onPlay}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-jsc-accent text-black text-[0.72rem] font-mono uppercase tracking-[0.06em] font-medium hover:bg-white transition-colors cursor-pointer mx-auto"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-jsc-accent text-black text-[0.72rem] font-mono uppercase tracking-[0.06em] font-medium hover:bg-jsc-accent-glow transition-colors cursor-pointer mx-auto"
               >
                 <Play size={14} strokeWidth={2} />
                 {siteConfig.demo.runPipeline}
               </button>
-              <p className="font-mono text-[0.6rem] text-white/20 mt-4">
+              <p className="font-mono text-[0.6rem] text-jsc-muted/60 mt-4">
                 {siteConfig.demo.idleHelper}
               </p>
             </div>

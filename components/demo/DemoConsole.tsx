@@ -33,7 +33,7 @@ export default function DemoConsole() {
   )
 
   return (
-    <div className="h-screen w-screen bg-[#0A0B0E] flex flex-col text-white overflow-hidden">
+    <div className="h-screen w-screen bg-jsc-bg flex flex-col text-jsc-ink overflow-hidden">
       <TopBar
         workflows={workflows}
         activeIndex={workflowIndex}
@@ -52,18 +52,18 @@ export default function DemoConsole() {
         />
       </div>
 
-      <div className="flex-shrink-0 border-t border-white/10 bg-[#0D0F14]">
+      <div className="flex-shrink-0 border-t border-jsc-line bg-white">
         <div className="flex items-center justify-between px-5 py-3">
           <div className="flex items-center gap-3">
             <button
               onClick={togglePlay}
-              className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/5 transition-colors cursor-pointer"
+              className="w-8 h-8 rounded-full border border-jsc-line flex items-center justify-center hover:bg-jsc-accent-soft transition-colors cursor-pointer"
               aria-label={state.status === 'running' ? siteConfig.demo.pauseAriaLabel : state.status === 'complete' ? siteConfig.demo.replayAriaLabel : siteConfig.demo.playAriaLabel}
             >
               {state.status === 'running' ? (
-                <span className="w-2.5 h-2.5 bg-white block" />
+                <span className="w-2.5 h-2.5 bg-jsc-ink block" />
               ) : (
-                <span className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-white border-b-[5px] border-b-transparent ml-0.5" />
+                <span className="w-0 h-0 border-t-[5px] border-t-transparent border-l-[8px] border-l-jsc-ink border-b-[5px] border-b-transparent ml-0.5" />
               )}
             </button>
 
@@ -74,7 +74,7 @@ export default function DemoConsole() {
                 className={`px-2 py-1 rounded text-[0.6rem] font-mono transition-colors cursor-pointer ${
                   state.speed === s
                     ? 'bg-jsc-accent/20 text-jsc-accent border border-jsc-accent/40'
-                    : 'text-white/40 hover:text-white/70 border border-transparent'
+                    : 'text-jsc-muted hover:text-jsc-ink border border-transparent'
                 }`}
               >
                 {s}x
@@ -84,13 +84,13 @@ export default function DemoConsole() {
             <button
               onClick={reset}
               disabled={state.status === 'idle'}
-              className="px-2 py-1 rounded text-[0.6rem] font-mono text-white/40 hover:text-white/70 border border-transparent hover:border-white/20 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+              className="px-2 py-1 rounded text-[0.6rem] font-mono text-jsc-muted hover:text-jsc-ink border border-transparent hover:border-jsc-line transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
             >
               {siteConfig.demo.resetLabel}
             </button>
 
             {state.status !== 'idle' && (
-              <span className="font-mono text-[0.6rem] text-white/30 tabular-nums ml-2">
+              <span className="font-mono text-[0.6rem] text-jsc-muted/60 tabular-nums ml-2">
                 {state.elapsedMs > 0
                   ? `${(state.elapsedMs / 1000).toFixed(1)}s`
                   : ''}
@@ -108,7 +108,7 @@ export default function DemoConsole() {
                   href={siteConfig.primaryCta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-1.5 rounded-full bg-jsc-accent text-black text-[0.65rem] font-mono uppercase tracking-[0.04em] font-medium hover:bg-white transition-colors no-underline"
+                  className="px-4 py-1.5 rounded-full bg-jsc-ink text-white text-[0.65rem] font-mono uppercase tracking-[0.04em] font-medium hover:bg-jsc-muted transition-colors no-underline"
                 >
                   {siteConfig.demo.consultationCta}
                 </a>

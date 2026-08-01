@@ -18,7 +18,7 @@ export default function StageIndicator({ stageNum, stageTitle }: Props) {
       <span className="font-mono text-[0.7rem] tracking-[0.08em] text-jsc-accent/80 px-2.5 py-1 rounded-full border border-jsc-accent/30 bg-jsc-accent/10 shadow-[0_0_12px_rgba(128,152,143,0.15)]">
         [ {stageNum} ]
       </span>
-      <span className="font-sans text-[0.82rem] text-white/50 tracking-[0.02em] font-medium">
+      <span className="font-sans text-[0.82rem] text-jsc-muted tracking-[0.02em] font-medium">
         {stageTitle}
       </span>
     </motion.div>

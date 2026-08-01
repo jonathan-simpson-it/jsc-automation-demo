@@ -69,6 +69,7 @@ const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: siteConfig.seo.website.name,
+  alternateName: siteConfig.seo.website.alternateName,
   url: siteConfig.url,
   description: siteConfig.seo.website.description,
 }

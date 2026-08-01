@@ -43,17 +43,17 @@ function MatrixCard({ connector, onClick }: { connector: Connector; onClick: () 
             return (
               <motion.div
                 key={bid}
-                className="absolute left-0 w-[22px] h-[22px] rounded-[5px] flex items-center justify-center"
+                className="absolute left-0 w-[26px] h-[26px] rounded-[5px] flex items-center justify-center"
                 style={{
-                  top: 5,
+                  top: 3,
                   background: b.bg || (b.multiColor ? '#fff' : (b.hex || '#e3e9e6')),
                   border: '1px solid var(--color-jsc-line)',
                   zIndex: brandIds.length - i,
                 }}
-                animate={{ x: isHovered ? i * 26 : i * 7 }}
+                animate={{ x: isHovered ? i * 30 : i * 7 }}
                 transition={{ type: 'spring', stiffness: 320, damping: 24, mass: 0.7 }}
               >
-                <BrandIcon id={bid} size={15} className={b.multiColor ? '' : 'text-white'} />
+                <BrandIcon id={bid} size={18} className={b.multiColor ? '' : 'text-white'} />
               </motion.div>
             )
           })}
@@ -154,7 +154,7 @@ export default function ConnectorMatrix() {
                           <div key={bid} className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
                             style={{ background: b?.bg || (b?.multiColor ? '#fff' : (b?.hex || '#e3e9e6')) }}
                           >
-                            <BrandIcon id={bid} size={16} className={b?.multiColor ? '' : 'text-white'} />
+                            <BrandIcon id={bid} size={20} className={b?.multiColor ? '' : 'text-white'} />
                           </div>
                         )
                       })}
@@ -196,7 +196,7 @@ export default function ConnectorMatrix() {
                               className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0"
                               style={{ background: b.bg || (b.multiColor ? '#fff' : (b.hex || '#e3e9e6')) }}
                             >
-                              <BrandIcon id={bid} size={13} className={b.multiColor ? '' : 'text-white'} />
+                              <BrandIcon id={bid} size={15} className={b.multiColor ? '' : 'text-white'} />
                             </span>
                             <span className="text-[0.82rem] text-jsc-ink">{b.name}</span>
                           </li>

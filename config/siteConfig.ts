@@ -17,9 +17,9 @@ export const siteConfig = {
     lang: 'en',
     locale: 'en_HK',
     titleTemplate: '%s | JS&C Automation',
-    defaultTitle: 'JS&C Automation | Zero-Data-Retention Agentic AI for HK Finance',
+    defaultTitle: 'JS&C Automation | Zero-Data-Retention AI',
     defaultDescription:
-      'Simulate ZDR multi-agent pipelines that free junior analysts from manual consolidation so they can focus on meaningful research, while maintaining SFC, HKMA, and PCPD compliance. Built by Jonathan Simpson & Co.',
+      'Watch our automated pipeline ingest data, verify identities, reconcile records, and dispatch audit results—with zero data retention.',
     defaultKeywords: [
       'AI automation Hong Kong',
       'agentic AI Hong Kong',
@@ -82,7 +82,8 @@ export const siteConfig = {
       addressRegion: 'Hong Kong',
     },
     website: {
-      name: 'JS&C Automation Demo',
+      name: 'JS&C Automation',
+      alternateName: 'Jonathan Simpson & Co.',
       description:
         'Interactive demo of Zero-Data-Retention Agentic AI middleware for Hong Kong financial institutions.',
     },

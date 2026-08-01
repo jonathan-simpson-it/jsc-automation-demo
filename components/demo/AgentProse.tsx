@@ -23,7 +23,7 @@ export default function AgentProse({ text, variant = 'default' }: Props) {
             <span className="block font-mono text-[0.6rem] uppercase tracking-[0.12em] text-jsc-accent/70 mb-1.5">
               Query
             </span>
-            <p className="text-[0.9rem] leading-relaxed text-white/90">{text}</p>
+            <p className="text-[0.9rem] leading-relaxed text-jsc-ink/90">{text}</p>
           </div>
         </div>
       </motion.div>
@@ -35,7 +35,7 @@ export default function AgentProse({ text, variant = 'default' }: Props) {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-      className="text-[0.9rem] leading-relaxed text-gray-300/90 my-2 max-w-prose"
+      className="text-[0.9rem] leading-relaxed text-jsc-ink/80 my-2 max-w-prose"
     >
       {text}
     </motion.p>

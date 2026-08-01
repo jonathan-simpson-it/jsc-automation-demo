@@ -8,7 +8,7 @@ interface Props {
 
 export default function SubTaskList({ items }: Props) {
   return (
-    <div className="border-l border-white/10 ml-4 pl-4 my-2 space-y-1">
+    <div className="border-l border-jsc-line ml-4 pl-4 my-2 space-y-1">
       {items.map((item, i) => {
         const isZdr = item.startsWith('[ZDR Gateway]')
         const isAgent = item.startsWith('Agent_')
@@ -28,15 +28,15 @@ export default function SubTaskList({ items }: Props) {
             <span
               className={`font-mono text-[0.72rem] leading-relaxed flex items-start gap-2 ${
                 isZdr
-                  ? 'text-jsc-accent drop-shadow-[0_0_6px_rgba(128,152,143,0.4)]'
+                  ? 'text-[#4d665c]'
                   : isAgent
-                  ? 'text-white/70'
+                  ? 'text-jsc-ink/80'
                   : isBatch
-                  ? 'text-white/60'
-                  : 'text-white/50'
+                  ? 'text-jsc-muted'
+                  : 'text-jsc-muted/80'
               }`}
             >
-              <span className="text-white/20 select-none mt-px">&gt;</span>
+              <span className="text-jsc-muted/40 select-none mt-px">&gt;</span>
               {item}
             </span>
           </motion.div>

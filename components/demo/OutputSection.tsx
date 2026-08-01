@@ -13,7 +13,7 @@ export default function OutputSection({ rows }: Props) {
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-      className="bg-white/[0.04] border border-white/10 rounded-xl p-5 my-3"
+      className="bg-white border border-jsc-line rounded-xl p-5 my-3 shadow-jsc-card"
     >
       <div className="space-y-1.5">
         {rows.map((row, i) => (
@@ -21,10 +21,10 @@ export default function OutputSection({ rows }: Props) {
             key={i}
             className="flex items-center justify-between gap-4"
           >
-            <span className="font-mono text-[0.7rem] text-white/50 tracking-wider uppercase">
+            <span className="font-mono text-[0.7rem] text-jsc-muted tracking-wider uppercase">
               {row.label}
             </span>
-            <span className="font-mono text-[0.78rem] text-white font-medium tabular-nums">
+            <span className="font-mono text-[0.78rem] text-jsc-ink font-medium tabular-nums">
               {row.value}
             </span>
           </div>
