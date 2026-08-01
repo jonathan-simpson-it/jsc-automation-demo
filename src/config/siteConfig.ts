@@ -229,6 +229,37 @@ export const siteConfig = {
     fullscreenAriaLabel: 'Expand full screen',
   },
 
+  simplicity: {
+    eyebrow: 'AI, Simply Asked',
+    heading: 'You ask. Your pipeline works.',
+    subtext:
+      'No PhD required. No code. No training. Give your pipeline a task in plain language, and it handles the repetitive work your team does every day.',
+    examples: [
+      {
+        icon: 'message-square',
+        ask: 'Reconcile today\u2019s NAV',
+        body:
+          'Pulls HSBC and UBS statements, cross-references BlackRock Aladdin benchmarks, and dispatches a clean NAV report with an audit proof.',
+      },
+      {
+        icon: 'shield-check',
+        ask: 'Screen this transaction',
+        body:
+          'Scans sanctions and PEP lists, flags matches, and routes exceptions to a human for sign-off. SFC rule verified.',
+      },
+      {
+        icon: 'file-text',
+        ask: 'Brief me on the IC call',
+        body:
+          'Pulls the Teams transcript, extracts decisions and action items, and posts a summary to Slack. Zero data retained.',
+      },
+    ],
+    note:
+      'AI in your company, running your operations. Your team does the work that matters. The pipeline does the rest.',
+    ctaLabel: 'Watch the Pipelines Run',
+    ctaHref: '/demo',
+  },
+
   pipeline: {
     stages: [
       { label: 'Ingest', sub: 'PDF / Transcript' },

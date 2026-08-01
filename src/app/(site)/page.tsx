@@ -4,6 +4,7 @@ import OpsTicker from '@/components/landing/OpsTicker'
 import RegulatorStrip from '@/components/landing/RegulatorStrip'
 import HowItWorks from '@/components/landing/HowItWorks'
 import VideoSection from '@/components/landing/VideoSection'
+import SimplicitySection from '@/components/landing/SimplicitySection'
 import ConnectorMatrix from '@/components/landing/ConnectorMatrix'
 import PricingSection from '@/components/landing/PricingSection'
 import RoadmapSection from '@/components/landing/RoadmapSection'
@@ -48,6 +49,7 @@ export default function LandingPage() {
       <RegulatorStrip />
       <HowItWorks />
       <VideoSection />
+      <SimplicitySection />
       <ConnectorMatrix />
       <PricingSection />
       <RoadmapSection />
